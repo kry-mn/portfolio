@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error 404 — Kunsh Aryaman</title>
+  <style>
+    @font-face {
+      font-family: 'VT323';
+      src: url('assets/fonts/VT323-Regular.ttf') format('truetype');
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%; height: 100%;
+      background: #0000AA;
+      color: #ffffff;
+      cursor: default;
+      overflow: hidden;
+    }
+
+    .bsod {
+      padding: 60px 80px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* ── Pixel art sad face ── */
+    .bsod-face {
+      margin-bottom: 48px;
+      position: relative;
+      width: 80px;
+      height: 100px;
+    }
+
+    /* Draw face with CSS box-shadow pixels (1 pixel = 14px) */
+    .px {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: #fff;
+    }
+
+    /* ── Text block ── */
+    .bsod-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 15px;
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    .bsod-text p { margin-bottom: 22px; }
+
+    .bsod-label {
+      font-family: 'VT323', monospace;
+      font-size: 22px;
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+    }
+
+    .bsod-code {
+      font-size: 14px;
+      color: #ccccff;
+    }
+
+    /* ── Restart button ── */
+    .bsod-restart {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .bsod-restart a {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 15px;
+      color: #ffffff;
+      text-decoration: underline;
+      cursor: default;
+      letter-spacing: 0.5px;
+    }
+    .bsod-restart a:hover {
+      background: #ffffff;
+      color: #0000AA;
+      text-decoration: none;
+      padding: 0 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bsod">
+
+    <!-- Pixel sad face: eyes + frown drawn as positioned squares -->
+    <div class="bsod-face" aria-hidden="true">
+      <!-- Left brow -->
+      <div class="px" style="left:14px; top:0;"></div>
+      <!-- Right brow -->
+      <div class="px" style="left:42px; top:0;"></div>
+      <!-- Left eye -->
+      <div class="px" style="left:14px; top:18px;"></div>
+      <div class="px" style="left:14px; top:32px;"></div>
+      <!-- Right eye -->
+      <div class="px" style="left:42px; top:18px;"></div>
+      <div class="px" style="left:42px; top:32px;"></div>
+      <!-- Frown (diagonal down-left) -->
+      <div class="px" style="left:56px; top:60px;"></div>
+      <div class="px" style="left:42px; top:70px;"></div>
+      <div class="px" style="left:28px; top:80px;"></div>
+      <div class="px" style="left:14px; top:88px;"></div>
+    </div>
+
+    <div class="bsod-text">
+      <p class="bsod-label">:Error 404</p>
+
+      <p>An error has occured. To continue:</p>
+
+      <p>Press the 'Restart Website' button.</p>
+
+      <p>Press CTRL+ALT+DEL to restart your computer. If you do this, you will<br>
+         lose any unsaved information in all open applications.</p>
+
+      <p class="bsod-code">Error: 0E : N404 : PT.C0111</p>
+    </div>
+
+    <div class="bsod-restart">
+      <a href="/">Restart Website &rarr;</a>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Kunsh Aryaman</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <div id="cursor">
+    <div class="cursor-h"></div>
+    <div class="cursor-v"></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-logo">KA<span style="color:var(--text-dim)">.EXE</span></div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="about.html" class="active">ABOUT</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener">RESUME</a>
+    </div>
+    <div class="nav-status">
+      <span class="status-dot"></span> AVAILABLE FOR WORK
+    </div>
+  </nav>
+
+  <!-- ── About Page ── -->
+  <main class="page">
+    <div class="about-page">
+
+      <!-- Bio window -->
+      <div class="win95-window">
+        <div class="win95-titlebar">
+          <span>about_me.txt</span>
+          <div class="win95-btns"><span>_</span><span>□</span><span>✕</span></div>
+        </div>
+        <div class="about-bio">
+          <h2>// WHO AM I</h2>
+
+          <!--
+            EDIT YOUR BIO HERE — just update the <p> tags below.
+            You can add or remove paragraphs freely.
+          -->
+          <p>
+            Hey, I'm <strong>Kunsh Aryaman</strong> — a VFX artist and motion designer
+            focused on creating visual experiences that blur the line between real and imagined.
+          </p>
+          <p>
+            I work across compositing, 3D simulation, and motion design — bringing together
+            practical storytelling instincts with technical precision.
+          </p>
+          <p>
+            Currently <strong>available for freelance and full-time opportunities.</strong>
+            Always interested in ambitious projects, films, and creative collaborations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Skills window -->
+      <div class="win95-window">
+        <div class="win95-titlebar">
+          <span>skills.exe</span>
+          <div class="win95-btns"><span>_</span><span>□</span><span>✕</span></div>
+        </div>
+        <div class="skills-section">
+          <h3>// TOOLS &amp; SOFTWARE</h3>
+
+          <!--
+            EDIT SKILLS HERE:
+            Change the width % in style="width: X%" to reflect your proficiency.
+            Add or remove .skill-row blocks as needed.
+          -->
+
+          <div class="skill-row">
+            <div class="skill-name">
+              <span>NUKE</span><span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:95%"></div>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">
+              <span>AFTER EFFECTS</span><span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:90%"></div>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">
+              <span>HOUDINI</span><span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:80%"></div>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">
+              <span>CINEMA 4D</span><span>75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:75%"></div>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">
+              <span>DAVINCI RESOLVE</span><span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:85%"></div>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">
+              <span>PREMIERE PRO</span><span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:80%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Contact window — spans full width -->
+      <div class="win95-window contact-section">
+        <div class="win95-titlebar">
+          <span>contact.exe</span>
+          <div class="win95-btns"><span>_</span><span>□</span><span>✕</span></div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-family:var(--font-pixel);font-size:18px;letter-spacing:2px;color:var(--text-dim);margin-bottom:1rem;">// GET IN TOUCH</h3>
+
+          <!--
+            EDIT CONTACT LINKS HERE — replace href="#" with your actual URLs/emails.
+          -->
+          <div class="contact-links">
+            <a href="mailto:your@email.com" class="btn-pixel">EMAIL ✉</a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="btn-pixel btn-secondary">LINKEDIN ↗</a>
+            <a href="https://www.artstation.com/yourprofile" target="_blank" rel="noopener" class="btn-pixel btn-secondary">ARTSTATION ↗</a>
+            <a href="https://www.instagram.com/yourhandle" target="_blank" rel="noopener" class="btn-pixel btn-secondary">INSTAGRAM ↗</a>
+            <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn-pixel btn-secondary">RESUME PDF ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div>KUNSH ARYAMAN &copy; <span id="year"></span></div>
+      <div>VFX_ARTIST <span>|</span> MOTION_DESIGNER</div>
+    </footer>
+  </main>
+
+  <script src="js/cursor.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

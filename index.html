@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kunsh Aryaman — VFX Artist</title>
+  <link rel="icon" type="image/png" href="assets/jellyfish_logo-01.png" />
+  <meta name="description" content="Portfolio of Kunsh Aryaman, VFX Artist & Motion Designer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="css/style.css?v=26" />
+</head>
+<body>
+
+  <!-- ── Boot Screen ── -->
+  <div id="boot-screen">
+    <!-- Phase 1: BIOS text -->
+    <div id="boot-bios"></div>
+
+    <!-- Phase 2: Win98 splash -->
+    <div id="boot-splash" hidden>
+      <img src="assets/jellyfish_logo-01.png" alt="" class="boot-jelly" />
+      <div>
+        <span class="boot-logo-win">Welcome to</span>
+        <span class="boot-logo-98">KUNSH.EXE</span>
+      </div>
+      <div class="boot-bar-track">
+        <div id="boot-bar-fill"></div>
+      </div>
+    </div>
+
+    <p class="boot-skip-hint">Click or press any key to skip</p>
+  </div>
+
+  <!-- ── Mobile BSOD ── -->
+  <div id="mobile-bsod">
+    <div class="mbsod-inner">
+
+      <!-- Pixel sad face -->
+      <div class="mbsod-face" aria-hidden="true">
+        <div class="px" style="left:14px; top:0;"></div>
+        <div class="px" style="left:42px; top:0;"></div>
+        <div class="px" style="left:14px; top:18px;"></div>
+        <div class="px" style="left:14px; top:32px;"></div>
+        <div class="px" style="left:42px; top:18px;"></div>
+        <div class="px" style="left:42px; top:32px;"></div>
+        <div class="px" style="left:56px; top:60px;"></div>
+        <div class="px" style="left:42px; top:70px;"></div>
+        <div class="px" style="left:28px; top:80px;"></div>
+        <div class="px" style="left:14px; top:88px;"></div>
+      </div>
+
+      <div class="mbsod-text">
+        <p class="mbsod-label">:Error 0x0000_MOBILE</p>
+        <p>An incompatible device has been detected.</p>
+        <p>KUNSH.EXE requires a desktop or laptop<br>environment to run correctly.</p>
+        <p>For the full experience, visit on a desktop.</p>
+        <p>In the meantime, reach out directly:</p>
+      </div>
+
+      <div class="mbsod-links">
+        <a href="mailto:kunsharyaman09@gmail.com">
+          <img src="assets/icons/email.png" alt="" /> kunsharyaman09@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/kunsh-aryaman-88839a26a/" target="_blank" rel="noopener">
+          <img src="assets/icons/linkedin.png" alt="" /> linkedin.com/in/kunsh-aryaman
+        </a>
+        <a href="https://www.instagram.com/kunshsart/" target="_blank" rel="noopener">
+          <img src="assets/icons/instagram.png" alt="" /> @kunshsart
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Scanlines + Moving Beam ── -->
+  <div id="scanlines">
+    <div class="beam2"></div>
+  </div>
+
+  <!-- ── Desktop ── -->
+  <div id="desktop">
+
+    <!-- Intro animation overlay (plays once after boot) -->
+    <div id="intro-overlay" style="display:none;">
+      <img id="intro-img" src="assets/stg_danger.png" alt="">
+    </div>
+
+    <!-- Background video (dual for crossfade loop) -->
+    <video id="bg-video-a" class="desktop-bg-video" autoplay muted playsinline>
+      <source src="assets/bg_01.mp4" type="video/mp4" />
+    </video>
+    <video id="bg-video-b" class="desktop-bg-video" muted playsinline>
+      <source src="assets/bg_01.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Desktop icons
+         Replace the emoji in .icon-fallback with an <img> tag pointing to your
+         Win98 icon file once you've downloaded them from win98icons.alexmeub.com
+         e.g. <img src="assets/icons/folder.png" class="os-titlebar-icon" />
+    -->
+    <div id="desktop-icons">
+
+      <div class="d-icon" data-win="projects" title="Double-click to open">
+        <img src="assets/icons/projects_unclicked.png" class="icon-default" alt="Projects" />
+        <img src="assets/icons/projects_clicked.png" class="icon-active" alt="Projects" />
+        <span>Projects</span>
+      </div>
+
+      <div class="d-icon" data-win="blogs" title="Double-click to open">
+        <img src="assets/icons/blogs.png" alt="Blogs" />
+        <span>Blogs</span>
+      </div>
+
+      <div class="d-icon" data-win="resume" title="Double-click to open">
+        <img src="assets/icons/resume.png" alt="Resume" />
+        <span>Resume</span>
+      </div>
+
+<div class="d-icon" data-win="reel" title="Double-click to open">
+        <img src="assets/icons/demo_reel.png" alt="Demo Reel" />
+        <span>Demo Reel</span>
+      </div>
+
+    </div><!-- /desktop-icons -->
+
+    <!-- ── Desktop Sticky Note (draggable, opens Demo Reel) ── -->
+    <div id="desktop-sticky" class="desktop-sticky" title="Click to open Demo Reel">
+      <div class="sticky-header">
+        <span class="sticky-pin">📌</span>
+        <span class="sticky-title">note.txt</span>
+        <button class="sticky-close-btn" id="sticky-close" title="Close">✕</button>
+      </div>
+      <div class="sticky-body">
+        <p>Hey! 👋 Welcome to<br>my portfolio site.</p>
+        <p class="sticky-cta">▶ Click for Demo Reel</p>
+      </div>
+    </div>
+
+    <!-- ── Guide Sticky Note (fixed, above taskbar) ── -->
+    <div id="guide-sticky" class="guide-sticky">
+      <div class="sticky-header">
+        <span class="sticky-pin">📋</span>
+        <span class="sticky-title">start_here.txt</span>
+        <button class="sticky-close-btn" id="guide-close" title="Close">✕</button>
+      </div>
+      <div class="sticky-body">
+        <p class="guide-row"><span class="guide-key">Welcome</span><span class="guide-val">show desktop</span></p>
+        <p class="guide-row"><span class="guide-key">About Me</span><span class="guide-val">who I am</span></p>
+        <p class="guide-row"><span class="guide-key">Projects</span><span class="guide-val">my VFX work</span></p>
+        <p class="guide-row"><span class="guide-key">Demo Reel</span><span class="guide-val">watch my reel</span></p>
+        <p class="guide-row"><span class="guide-key">Resume</span><span class="guide-val">download CV</span></p>
+      </div>
+    </div>
+
+    <!-- ── Guide restore tab (visible when guide is closed) ── -->
+    <button id="guide-restore-tab" class="guide-restore-tab" title="Show guide">📋 start_here</button>
+
+    <!-- ── Contact label sticky (above taskbar right) ── -->
+    <div class="contact-label-sticky">
+      <span class="contact-label-arrow">↓</span>
+      <span class="contact-label-text">reach out</span>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════
+         WINDOW: PROJECTS
+         ═══════════════════════════════════════════════ -->
+    <div class="os-window" id="win-projects" style="left:80px; top:40px; width:820px; height:530px;">
+
+      <div class="os-titlebar">
+        <div class="os-titlebar-left">
+          <span class="os-titlebar-icon emoji">🗂️</span>
+          <h2>Projects</h2>
+        </div>
+        <div class="os-titlebar-btns">
+          <button class="os-wbtn" data-action="minimize" title="Minimize">_</button>
+          <button class="os-wbtn" data-action="maximize" title="Maximize">□</button>
+          <button class="os-wbtn close-btn" data-action="close" title="Close">✕</button>
+        </div>
+      </div>
+
+      <div class="os-body" id="proj-body">
+        <!-- Sort toolbar -->
+        <div class="proj-toolbar" id="proj-toolbar">
+          <button class="proj-filter-btn active" data-sort="newest">NEWEST FIRST</button>
+          <button class="proj-filter-btn" data-sort="oldest">OLDEST FIRST</button>
+        </div>
+
+        <!-- Project grid — rendered by JS -->
+        <div class="proj-grid" id="proj-grid"></div>
+
+        <!-- Project detail view (hidden until card clicked) -->
+        <div class="proj-detail" id="proj-detail">
+
+          <!-- Sticky nav: back -->
+          <div class="proj-detail-sticky-nav" id="proj-sticky-nav">
+            <button class="proj-detail-back" id="proj-back">← BACK TO PROJECTS</button>
+          </div>
+
+          <!-- Two-column body -->
+          <div class="proj-detail-body">
+
+            <!-- Left column: video + stills -->
+            <div class="proj-col-media" id="proj-col-media">
+              <div class="proj-detail-video" id="proj-detail-media"></div>
+              <div class="proj-col-stills" id="proj-col-stills"></div>
+            </div>
+
+            <!-- Right column: info + content -->
+            <div class="proj-col-info" id="proj-col-info">
+              <div class="proj-detail-header">
+                <h2 class="proj-detail-title" id="proj-detail-title"></h2>
+                <div class="proj-detail-meta" id="proj-detail-meta"></div>
+              </div>
+              <div class="proj-detail-blurb" id="proj-detail-blurb"></div>
+              <div class="proj-detail-divider"></div>
+              <div class="proj-detail-content" id="proj-detail-content"></div>
+            </div>
+
+          <!-- Scroll-to-top for media column -->
+          <button class="proj-media-scroll-top" id="proj-media-scroll-top">↑</button>
+
+          </div>
+
+          <!-- Sticky footer: prev / next project -->
+          <div class="proj-detail-footer">
+            <button class="proj-nav-btn proj-nav-prev" id="proj-prev"></button>
+            <button class="proj-nav-btn proj-nav-next" id="proj-next"></button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="os-statusbar">
+        <span class="os-statusbar-pane" id="proj-status">0 items</span>
+        <span class="os-statusbar-pane">VFX Portfolio</span>
+      </div>
+
+      <div class="os-resize"></div>
+    </div><!-- /win-projects -->
+
+
+    <!-- ═══════════════════════════════════════════════
+         WINDOW: BLOGS
+         ═══════════════════════════════════════════════ -->
+    <div class="os-window" id="win-blogs" style="left:120px; top:70px; width:700px; height:500px;">
+
+      <div class="os-titlebar">
+        <div class="os-titlebar-left">
+          <img src="assets/icons/blogs.png" class="os-titlebar-icon" alt="" />
+          <h2>Blogs</h2>
+        </div>
+        <div class="os-titlebar-btns">
+          <button class="os-wbtn" data-action="minimize">_</button>
+          <button class="os-wbtn" data-action="maximize">□</button>
+          <button class="os-wbtn close-btn" data-action="close">✕</button>
+        </div>
+      </div>
+
+      <div class="os-body" id="blog-body">
+        <!-- Blog list -->
+        <div id="blog-list-view"></div>
+
+        <!-- Updates index (shown for posts with type:"updates") -->
+        <div class="blog-updates-view" id="blog-updates-view">
+          <div class="blog-updates-nav">
+            <button class="blog-post-back" id="blog-updates-back">← BACK TO BLOGS</button>
+          </div>
+          <h1 class="blog-updates-title" id="blog-updates-title"></h1>
+          <div class="blog-updates-list" id="blog-updates-list"></div>
+        </div>
+
+        <!-- Blog post / update content view -->
+        <div class="blog-post" id="blog-post-view">
+          <div class="blog-sticky-nav" id="blog-sticky-nav">
+            <button class="blog-sticky-back" id="blog-back">← BACK</button>
+            <div class="proj-menu-wrap" id="blog-menu-wrap">
+              <button class="proj-menu-btn" id="blog-menu-btn">&#9776; <span class="proj-menu-label-txt">ALL BLOGS</span></button>
+              <div class="proj-menu-dropdown" id="blog-menu-dropdown"></div>
+            </div>
+            <button class="blog-scroll-top" id="blog-scroll-top">↑ TOP</button>
+          </div>
+          <div class="blog-post-content">
+            <h1 id="blog-post-title"></h1>
+            <div class="blog-post-date" id="blog-post-date"></div>
+            <div class="blog-tags" id="blog-post-tags"></div>
+            <div class="blog-post-body" id="blog-post-body" style="margin-top:16px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="os-statusbar">
+        <span class="os-statusbar-pane" id="blog-status">0 posts</span>
+      </div>
+
+      <div class="os-resize"></div>
+    </div><!-- /win-blogs -->
+
+
+    <!-- ═══════════════════════════════════════════════
+         WINDOW: RESUME
+         ═══════════════════════════════════════════════ -->
+    <div class="os-window" id="win-resume" style="left:160px; top:60px; width:760px; height:560px;">
+
+      <div class="os-titlebar">
+        <div class="os-titlebar-left">
+          <img src="assets/icons/resume.png" class="os-titlebar-icon" alt="" />
+          <h2>Resume</h2>
+        </div>
+        <div class="os-titlebar-btns">
+          <button class="os-wbtn" data-action="minimize">_</button>
+          <button class="os-wbtn" data-action="maximize">□</button>
+          <button class="os-wbtn close-btn" data-action="close">✕</button>
+        </div>
+      </div>
+
+      <div class="os-body" style="padding:0;">
+        <div class="resume-wrap">
+          <div class="resume-toolbar">
+            <span>📄 resume.pdf</span>
+            <a href="assets/resume.pdf" download="Kunsh_Aryaman_Resume.pdf" class="btn-px" style="margin-left:auto;">DOWNLOAD ↓</a>
+            <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn-px secondary">OPEN IN TAB ↗</a>
+          </div>
+          <!--
+            The PDF is shown in an iframe below.
+            Drop your resume.pdf into the assets/ folder and it will appear here.
+            Some browsers block PDF iframes — the "Open in new tab" button above
+            always works as a fallback.
+          -->
+          <iframe src="assets/resume.pdf" title="Resume" id="resume-iframe"
+                  style="flex:1;width:100%;border:none;background:#fff;"></iframe>
+        </div>
+      </div>
+
+      <div class="os-resize"></div>
+    </div><!-- /win-resume -->
+
+
+
+
+
+    <!-- ═══════════════════════════════════════════════
+         WINDOW: ABOUT (opened from taskbar)
+         ═══════════════════════════════════════════════ -->
+    <div class="os-window" id="win-about" style="left:200px; top:80px; width:620px; height:440px;">
+
+      <div class="os-titlebar">
+        <div class="os-titlebar-left">
+          <span class="os-titlebar-icon emoji">👤</span>
+          <h2>About — Kunsh Aryaman</h2>
+        </div>
+        <div class="os-titlebar-btns">
+          <button class="os-wbtn" data-action="minimize">_</button>
+          <button class="os-wbtn" data-action="maximize">□</button>
+          <button class="os-wbtn close-btn" data-action="close">✕</button>
+        </div>
+      </div>
+
+      <div class="os-body about-body">
+        <div class="about-layout">
+
+          <!-- Photo column -->
+          <div class="about-photo-col">
+            <!--
+              To add your photo: replace the .about-photo-ph div below with:
+              <img src="assets/profile.jpg" alt="Kunsh Aryaman" class="about-photo" />
+            -->
+            <img src="assets/profile.jpg" alt="Kunsh Aryaman" class="about-photo" />
+
+          </div>
+
+          <!-- Text column -->
+          <div class="about-text-col">
+            <video src="assets/aboutme_showcase_4k.webm" loop muted playsinline class="about-showcase-video"></video>
+            <div class="about-bio" id="d-about-bio">
+              <h2>// ABOUT ME</h2>
+            </div>
+            <div class="about-links" id="d-about-links"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="os-resize"></div>
+    </div><!-- /win-about -->
+
+
+    <!-- ═══════════════════════════════════════════════
+         WINDOW: DISPLAY PROPERTIES (background picker)
+         ═══════════════════════════════════════════════ -->
+    <div class="os-window" id="win-display" style="left:280px; top:140px; width:320px; height:260px;">
+
+      <div class="os-titlebar">
+        <div class="os-titlebar-left">
+          <span class="os-titlebar-icon emoji">🖥️</span>
+          <h2>Display Properties</h2>
+        </div>
+        <div class="os-titlebar-btns">
+          <button class="os-wbtn" data-action="minimize">_</button>
+          <button class="os-wbtn" data-action="maximize">□</button>
+          <button class="os-wbtn close-btn" data-action="close">✕</button>
+        </div>
+      </div>
+
+      <div class="os-body" style="background:var(--sys-bg); color:var(--sys-black); overflow:hidden;">
+        <div class="display-props">
+          <h3>Background</h3>
+          <!-- Preset buttons injected by desktop.js -->
+          <div class="bg-presets"></div>
+        </div>
+      </div>
+
+      <div class="os-resize"></div>
+    </div><!-- /win-display -->
+
+
+    <!-- ═══════════════════════════════════════════════
+         WINDOW: DEMO REEL
+         ═══════════════════════════════════════════════ -->
+    <div class="os-window" id="win-reel" style="left:120px; top:60px; width:800px; height:490px;">
+
+      <div class="os-titlebar">
+        <div class="os-titlebar-left">
+          <span class="os-titlebar-icon emoji">🎬</span>
+          <h2>Demo Reel</h2>
+        </div>
+        <div class="os-titlebar-btns">
+          <button class="os-wbtn" data-action="minimize">_</button>
+          <button class="os-wbtn" data-action="maximize">□</button>
+          <button class="os-wbtn close-btn" data-action="close">✕</button>
+        </div>
+      </div>
+
+      <div class="os-body" style="padding:0;">
+        <div class="reel-body">
+          <!--
+            TO ADD YOUR DEMO REEL — replace the .reel-placeholder-inner div below.
+
+            YouTube embed:
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                      allowfullscreen title="Demo Reel"></iframe>
+
+            Vimeo embed:
+              <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID"
+                      allowfullscreen title="Demo Reel"></iframe>
+
+            Local video file (put it in assets/):
+              <video src="assets/reel.mp4" controls poster="assets/reel-poster.jpg"></video>
+          -->
+          <video src="assets/reel/demoreel.mp4" controls style="width:100%;height:100%;display:block;background:#000;"></video>
+        </div>
+      </div>
+
+      <div class="os-resize"></div>
+    </div><!-- /win-reel -->
+
+  </div><!-- /desktop -->
+
+
+  <!-- ── Icon Context Menu ── -->
+  <div id="icon-ctx-menu">
+    <div class="ctx-item bold" id="icon-ctx-open">Open</div>
+    <div class="ctx-separator"></div>
+    <div class="ctx-item disabled">Rename</div>
+  </div>
+
+  <!-- ── Context Menu ── -->
+  <div id="ctx-menu">
+    <div class="ctx-item ctx-submenu-wrap">
+      Wallpaper
+      <div class="ctx-submenu" id="ctx-wallpaper">
+        <!-- Background options also accessible via Display Properties window -->
+      </div>
+    </div>
+    <div class="ctx-separator"></div>
+    <div class="ctx-item" id="ctx-display-props">Display Properties...</div>
+  </div>
+
+
+  <!-- ── Search Results ── -->
+  <div id="search-results"></div>
+
+
+  <!-- ════════════════════════════════════════════════
+       TASKBAR (fixed footer)
+       ════════════════════════════════════════════════ -->
+  <div id="taskbar">
+
+    <!-- LEFT: Home + About Me -->
+    <div class="taskbar-left">
+      <button class="tb-btn" id="tb-home" title="Show Desktop">
+        <img src="assets/icons/home.png" class="btn-icon" /> Welcome
+      </button>
+      <button class="tb-btn" id="tb-about" title="About Me">
+        <img src="assets/icons/about.png" class="btn-icon" /> About Me
+      </button>
+    </div>
+
+    <div class="taskbar-sep"></div>
+
+    <!-- Minimized window buttons (populated by JS) -->
+    <div id="taskbar-windows"></div>
+
+    <div class="taskbar-sep"></div>
+
+    <!-- CENTER: Search -->
+    <div class="taskbar-center">
+      <div class="tb-search-wrap">
+        <label for="search-input">🔍</label>
+        <input id="search-input" type="search" placeholder="Search projects, blogs..." autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="taskbar-sep"></div>
+
+    <!-- RIGHT: Contact icons + clock -->
+    <div class="taskbar-right">
+      <div class="tb-available">
+        <span class="status-dot"></span>
+        <span>Available</span>
+      </div>
+      <div class="taskbar-sep"></div>
+      <!--
+        EDIT: Replace href="#" with your actual profile URLs.
+      -->
+      <a href="https://www.instagram.com/kunshsart/" target="_blank" rel="noopener"
+         class="tb-contact-link" title="Instagram">
+        <img src="assets/icons/instagram.png" alt="Instagram" />
+      </a>
+      <a href="mailto:kunsharyaman09@gmail.com"
+         class="tb-contact-link" title="Email">
+        <img src="assets/icons/email.png" alt="Email" />
+      </a>
+      <a href="https://www.linkedin.com/in/kunsh-aryaman-88839a26a/" target="_blank" rel="noopener"
+         class="tb-contact-link" title="LinkedIn">
+        <img src="assets/icons/linkedin.png" alt="LinkedIn" />
+      </a>
+
+      <button class="tb-sound-btn" id="tb-sound" title="Toggle Sound">♪</button>
+      <span class="tb-clock" id="tb-clock">00:00</span>
+    </div>
+
+  </div><!-- /taskbar -->
+
+
+  <!-- ════════════════════════════════
+       Scripts
+       ════════════════════════════════ -->
+  <script src="js/about.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/blogs.js"></script>
+
+  <!-- ── About render ── -->
+  <script>
+  (function () {
+    var a = ABOUT;
+
+    function makeLink(lnk) {
+      var el = document.createElement('a');
+      el.href = lnk.href;
+      el.className = 'btn-px';
+      el.textContent = lnk.label;
+      if (lnk.external) { el.target = '_blank'; el.rel = 'noopener'; }
+      return el;
+    }
+
+    /* Desktop */
+    var dbio = document.getElementById('d-about-bio');
+    if (dbio) {
+      var intro = document.createElement('p');
+      intro.className = 'about-intro-line';
+      intro.innerHTML = a.intro;
+      dbio.appendChild(intro);
+      a.bio.forEach(function (t) {
+        var p = document.createElement('p');
+        p.innerHTML = t;
+        dbio.appendChild(p);
+      });
+    }
+    var dlinks = document.getElementById('d-about-links');
+    if (dlinks) { a.links.forEach(function (lnk) { dlinks.appendChild(makeLink(lnk)); }); }
+
+    /* Mobile */
+    var mph = document.getElementById('m-about-photo');
+    if (mph) { mph.src = a.photo; mph.alt = a.name; }
+
+    var mident = document.getElementById('m-about-ident');
+    if (mident) {
+      mident.innerHTML =
+        '<p class="m-about-name">'     + a.name.toUpperCase()     + '</p>' +
+        '<p class="m-about-role-tag">' + a.role.toUpperCase()     + '</p>' +
+        '<p class="m-about-loc">'      + a.location               + '</p>';
+    }
+
+    var mbio = document.getElementById('m-about-bio');
+    if (mbio) {
+      a.bio.forEach(function (t) {
+        var p = document.createElement('p');
+        p.innerHTML = t;
+        mbio.appendChild(p);
+      });
+    }
+
+    var mlinks = document.getElementById('m-about-links');
+    if (mlinks) { a.links.forEach(function (lnk) { mlinks.appendChild(makeLink(lnk)); }); }
+  })();
+  </script>
+
+  <!-- ── Projects window logic ── -->
+  <script>
+    (function () {
+      const toolbar  = document.getElementById('proj-toolbar');
+      const grid     = document.getElementById('proj-grid');
+      const detail   = document.getElementById('proj-detail');
+      const status   = document.getElementById('proj-status');
+
+      /* ── Lightbox state (shared across openDetail + nav handlers) ── */
+      let _lbSrcs = [];
+      let _lbCur  = 0;
+
+      function openLb(srcs, idx) {
+        _lbSrcs = srcs;
+        _lbCur  = idx;
+        const lb    = document.getElementById('proj-lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        if (!lb || !lbImg) return;
+        lbImg.src = _lbSrcs[_lbCur];
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
+        _lbNavVis();
+      }
+      function closeLb() {
+        const lb    = document.getElementById('proj-lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        if (!lb) return;
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+        setTimeout(() => { if (lbImg) lbImg.src = ''; }, 300);
+      }
+      function navLb(dir) {
+        if (_lbSrcs.length < 2) return;
+        _lbCur = (_lbCur + dir + _lbSrcs.length) % _lbSrcs.length;
+        const lbImg = document.getElementById('lightbox-img');
+        if (lbImg) lbImg.src = _lbSrcs[_lbCur];
+      }
+      function _lbNavVis() {
+        const show = _lbSrcs.length > 1;
+        const p = document.getElementById('lightbox-prev');
+        const n = document.getElementById('lightbox-next');
+        if (p) p.style.display = show ? '' : 'none';
+        if (n) n.style.display = show ? '' : 'none';
+      }
+
+      /* Bind close/nav handlers after DOM fully parsed */
+      document.addEventListener('DOMContentLoaded', function () {
+        const lb = document.getElementById('proj-lightbox');
+        if (!lb) return;
+        document.getElementById('lightbox-close')?.addEventListener('click', closeLb);
+        document.getElementById('lightbox-prev')?.addEventListener('click', () => navLb(-1));
+        document.getElementById('lightbox-next')?.addEventListener('click', () => navLb(1));
+        lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+        document.addEventListener('keydown', e => {
+          if (!lb.classList.contains('open')) return;
+          if (e.key === 'Escape')     closeLb();
+          if (e.key === 'ArrowLeft')  navLb(-1);
+          if (e.key === 'ArrowRight') navLb(1);
+        });
+      });
+
+      function renderGrid(sortDir) {
+        grid.innerHTML = '';
+        const sorted = [...PROJECTS].sort((a, b) =>
+          sortDir === 'oldest'
+            ? parseInt(a.year) - parseInt(b.year)
+            : parseInt(b.year) - parseInt(a.year)
+        );
+
+        status.textContent = sorted.length + (sorted.length === 1 ? ' item' : ' items');
+
+sorted.forEach(p => {
+          const idx = PROJECTS.indexOf(p);
+          const card = document.createElement('div');
+          card.className = 'proj-card';
+          const thumbStyle = p.thumbScale ? ` style="transform:scale(${p.thumbScale});transform-origin:center center;"` : '';
+          const thumb = p.thumbnail
+            ? `<img src="${p.thumbnail}" alt="${p.title}" loading="lazy"${thumbStyle} />`
+            : `<div class="proj-thumb-ph">// NO PREVIEW<br>${p.title}</div>`;
+          card.innerHTML = `
+            <div class="proj-thumb">
+              ${thumb}
+              <div class="proj-thumb-hover">
+                <span class="proj-thumb-title">${p.title}</span>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-cat-label">${p.category}</span>
+            </div>`;
+
+          if (p.hoverColor) {
+            const titleEl = card.querySelector('.proj-thumb-title');
+            if (titleEl) titleEl.style.color = p.hoverColor;
+          }
+
+          card.addEventListener('click', () => openDetail(idx));
+          grid.appendChild(card);
+        });
+      }
+
+      renderGrid('newest');
+
+      toolbar.addEventListener('click', e => {
+        const btn = e.target.closest('.proj-filter-btn');
+        if (!btn) return;
+        toolbar.querySelectorAll('.proj-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGrid(btn.dataset.sort);
+      });
+
+      function openDetail(idx) {
+        const p = PROJECTS[idx];
+
+        // ── Clear stills column ──
+        const stillsEl = document.getElementById('proj-col-stills');
+        stillsEl.innerHTML = '';
+
+        // ── Header ──
+        const titleEl = document.getElementById('proj-detail-title');
+        titleEl.textContent = p.title;
+        titleEl.style.color = p.hoverColor || '';
+        const infoEl = document.getElementById('proj-col-info');
+        if (infoEl) {
+          if (p.hoverColor) infoEl.style.setProperty('--proj-accent', p.hoverColor);
+          else infoEl.style.removeProperty('--proj-accent');
+        }
+
+        // ── Video ──
+        const mediaEl = document.getElementById('proj-detail-media');
+        if (p.video) {
+          mediaEl.hidden = false;
+          mediaEl.innerHTML = `<iframe src="${p.video}" allowfullscreen title="${p.title}"></iframe>`;
+        } else if (p.videos && p.videos.length > 1) {
+          mediaEl.hidden = false;
+          let vidIdx = 0;
+          const SVG_PREV = `<svg viewBox="0 0 30 50" width="28" height="46"><polygon points="24,3 3,25 24,47" fill="currentColor"/></svg>`;
+          const SVG_NEXT = `<svg viewBox="0 0 30 50" width="28" height="46"><polygon points="6,3 27,25 6,47" fill="currentColor"/></svg>`;
+          function renderCarousel() {
+            const v = p.videos[vidIdx];
+            mediaEl.innerHTML = `
+              <div class="proj-vid-carousel">
+                <button class="proj-vid-arrow proj-vid-prev" title="Previous">${SVG_PREV}</button>
+                <div class="proj-vid-wrap">
+                  <video src="${v.src}" controls preload="metadata"></video>
+                  <div class="proj-vid-label">${v.label} <span class="proj-vid-counter">${vidIdx + 1} / ${p.videos.length}</span></div>
+                </div>
+                <button class="proj-vid-arrow proj-vid-next" title="Next">${SVG_NEXT}</button>
+              </div>`;
+            mediaEl.querySelector('.proj-vid-prev').addEventListener('click', () => {
+              vidIdx = (vidIdx - 1 + p.videos.length) % p.videos.length;
+              renderCarousel();
+            });
+            mediaEl.querySelector('.proj-vid-next').addEventListener('click', () => {
+              vidIdx = (vidIdx + 1) % p.videos.length;
+              renderCarousel();
+            });
+          }
+          renderCarousel();
+        } else if (p.videoFile) {
+          mediaEl.hidden = false;
+          mediaEl.innerHTML = `<video src="${p.videoFile}" controls preload="metadata"></video>`;
+        } else {
+          mediaEl.hidden = true;
+          mediaEl.innerHTML = '';
+        }
+
+        // ── Meta: Year / Duration / Software ──
+        const metaEl = document.getElementById('proj-detail-meta');
+        const metaRows = [];
+        if (p.year) {
+          metaRows.push(`<div class="proj-meta-row">
+            <span class="proj-meta-key">Year</span>
+            <span class="proj-meta-sep">:</span>
+            <span class="proj-meta-val">${p.year}</span>
+          </div>`);
+        }
+        if (p.duration) {
+          metaRows.push(`<div class="proj-meta-row">
+            <span class="proj-meta-key">Project Duration</span>
+            <span class="proj-meta-sep">:</span>
+            <span class="proj-meta-val">${p.duration}</span>
+          </div>`);
+        }
+        if (p.tags && p.tags.length) {
+          metaRows.push(`<div class="proj-meta-row">
+            <span class="proj-meta-key">Software Used</span>
+            <span class="proj-meta-sep">:</span>
+            <span class="proj-meta-val">${p.tags.join(', ')}</span>
+          </div>`);
+        }
+        metaEl.innerHTML = metaRows.join('');
+        metaEl.hidden = metaRows.length === 0;
+
+        // ── Blurb ──
+        const blurbEl = document.getElementById('proj-detail-blurb');
+        if (p.blurb) {
+          blurbEl.hidden  = false;
+          blurbEl.textContent = p.blurb;
+        } else {
+          blurbEl.hidden  = true;
+          blurbEl.textContent = '';
+        }
+
+        // ── Content: all text as a block, then all images in a grid ──
+        const contentEl = document.getElementById('proj-detail-content');
+        contentEl.innerHTML = '';
+
+        if (p.content && p.content.length) {
+          /* Separate text items from image items */
+          const texts = p.content.filter(i => i.type === 'text' || i.type === 'intro' || (i.text && i.text.trim()));
+          const imgs  = p.content.filter(i => i.type === 'image' || (i.image && i.image.trim()));
+
+          /* ── Text block ── */
+          if (texts.length) {
+            const block = document.createElement('div');
+            block.className = 'proj-content-block';
+            texts.forEach(item => {
+              const val = item.value || item.text;
+              if (!val || !val.trim()) return;
+              const el = document.createElement('p');
+              /* 'intro' type gets a slightly larger size */
+              el.className = item.type === 'intro' ? 'proj-content-intro' : 'proj-content-text';
+              el.innerHTML = val;
+              block.appendChild(el);
+            });
+            contentEl.appendChild(block);
+            block.querySelectorAll('[data-blog-slug]').forEach(a => {
+              a.addEventListener('click', e => {
+                e.preventDefault();
+                const slug = a.dataset.blogSlug;
+                try { history.pushState(null, '', '#blogs/' + slug); } catch(err) {}
+                window._poppingState = true;
+                if (window._openWindow) window._openWindow('blogs');
+                setTimeout(() => {
+                  if (window._openBlogBySlug) window._openBlogBySlug(slug);
+                  window._poppingState = false;
+                }, 80);
+              });
+            });
+          }
+
+          /* ── Image grid → left column ── */
+          if (imgs.length) {
+            const srcs = imgs.map(i => i.type === 'image' ? i.value : i.image);
+            _lbSrcs = srcs;
+            srcs.forEach((src, si) => {
+              const item = document.createElement('div');
+              item.className = 'proj-img-item';
+
+              const wrap = document.createElement('div');
+              wrap.className = 'proj-content-img';
+              wrap.innerHTML = `<img src="${src}" alt="${p.title}" loading="lazy" />`;
+              wrap.addEventListener('click', () => openLb(srcs, si));
+
+              const lbl = document.createElement('div');
+              lbl.className = 'proj-img-label';
+              lbl.textContent = `image render ${si + 1}`;
+
+              item.appendChild(wrap);
+              item.appendChild(lbl);
+              stillsEl.appendChild(item);
+            });
+          }
+        } else if (p.description) {
+          const el = document.createElement('p');
+          el.className = 'proj-content-text';
+          el.textContent = p.description;
+          contentEl.appendChild(el);
+        }
+
+        // ── Prev / Next footer buttons ──
+        const prevIdx = (idx - 1 + PROJECTS.length) % PROJECTS.length;
+        const nextIdx = (idx + 1) % PROJECTS.length;
+        const prevBtn = document.getElementById('proj-prev');
+        const nextBtn = document.getElementById('proj-next');
+        prevBtn.innerHTML = `← PREV PROJECT<span class="proj-nav-sub">${PROJECTS[prevIdx].title}</span>`;
+        prevBtn.onclick = () => openDetail(prevIdx);
+        nextBtn.innerHTML = `NEXT PROJECT →<span class="proj-nav-sub">${PROJECTS[nextIdx].title}</span>`;
+        nextBtn.onclick = () => openDetail(nextIdx);
+
+        grid.style.display    = 'none';
+        toolbar.style.display = 'none';
+        document.getElementById('proj-body').classList.add('body-detail-active');
+        detail.classList.add('open');
+        detail.dataset.currentIdx = idx;
+        if (typeof window._setProjMenuIdx === 'function') window._setProjMenuIdx(idx);
+        document.getElementById('proj-col-media').scrollTop = 0;
+        document.getElementById('proj-col-info').scrollTop  = 0;
+        const _msBtn = document.getElementById('proj-media-scroll-top');
+        if (_msBtn) _msBtn.classList.remove('is-visible');
+        const _slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        if (!window._poppingState) {
+          try { history.pushState(null, '', '#project/' + _slug); } catch(e) { window.location.hash = 'project/' + _slug; }
+        }
+      }
+
+      /* Expose for desktop.js: open a project directly from search */
+      window._openProjectDetail = openDetail;
+
+      /* Expose for desktop.js: reset to grid when window is closed */
+      window._resetProjects = function () {
+        detail.classList.remove('open');
+        const body = document.getElementById('proj-body');
+        if (body) body.classList.remove('body-detail-active');
+        const infoEl = document.getElementById('proj-col-info');
+        if (infoEl) infoEl.style.removeProperty('--proj-accent');
+        const media = document.getElementById('proj-detail-media');
+        if (media) media.innerHTML = '';
+        const stills = document.getElementById('proj-col-stills');
+        if (stills) stills.innerHTML = '';
+        const content = document.getElementById('proj-detail-content');
+        if (content) content.innerHTML = '';
+        const seealso = document.getElementById('proj-seealso');
+        if (seealso) seealso.innerHTML = '';
+        grid.style.display    = '';
+        toolbar.style.display = '';
+        if (body) body.scrollTop = 0;
+        /* hash managed by popstate/closeWindow — no push here */
+      };
+
+      function renderSeeAlso(currentIdx) {
+        const el = document.getElementById('proj-seealso');
+        el.innerHTML = '';
+        const others = PROJECTS.map((p, i) => ({ p, i })).filter(({ i }) => i !== currentIdx);
+        if (!others.length) return;
+
+        const picked = others.sort(() => Math.random() - 0.5).slice(0, 3);
+
+        const header = document.createElement('div');
+        header.className = 'seealso-header';
+        const label = document.createElement('div');
+        label.className = 'seealso-label';
+        label.textContent = 'see also';
+        const moreBtn = document.createElement('button');
+        moreBtn.className = 'btn-px seealso-more-btn';
+        moreBtn.textContent = 'more projects';
+        moreBtn.addEventListener('click', () => {
+          window._poppingState = true;
+          if (window._resetProjects) window._resetProjects();
+          window._poppingState = false;
+          try { history.pushState(null, '', '#projects'); } catch(e) {}
+        });
+        header.appendChild(label);
+        header.appendChild(moreBtn);
+        el.appendChild(header);
+
+        picked.forEach(({ p: op, i: oi }) => {
+          const card = document.createElement('div');
+          card.className = 'seealso-card';
+          card.innerHTML = `
+            <div class="seealso-thumb">
+              <img src="${op.thumbnail}" alt="${op.title}" loading="lazy" />
+            </div>
+            <div class="seealso-info">
+              <div class="seealso-cat">${op.category}</div>
+              <div class="seealso-title">${op.title}</div>
+            </div>
+            <div class="seealso-arrow">↗</div>`;
+          card.addEventListener('click', () => openDetail(oi));
+          el.appendChild(card);
+        });
+      }
+
+      document.getElementById('proj-back').addEventListener('click', () => {
+        window._poppingState = true;
+        if (window._resetProjects) window._resetProjects();
+        window._poppingState = false;
+        try { history.pushState(null, '', '#projects'); } catch(e) {}
+      });
+
+      const scrollTopBtn = document.getElementById('proj-scroll-top');
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+          const mc = document.getElementById('proj-col-media');
+          const ic = document.getElementById('proj-col-info');
+          if (mc) mc.scrollTo({ top: 0, behavior: 'smooth' });
+          if (ic) ic.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      /* ── Media column scroll-to-top arrow ── */
+      (function () {
+        const mediaCol = document.getElementById('proj-col-media');
+        const topBtn   = document.getElementById('proj-media-scroll-top');
+        if (!mediaCol || !topBtn) return;
+        mediaCol.addEventListener('scroll', () => {
+          topBtn.classList.toggle('is-visible', mediaCol.scrollTop >= 120);
+        });
+        topBtn.addEventListener('click', () => {
+          mediaCol.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      })();
+
+      /* ── Hamburger project menu ── */
+      (function () {
+        const menuBtn  = document.getElementById('proj-menu-btn');
+        const menuDrop = document.getElementById('proj-menu-dropdown');
+        if (!menuBtn || !menuDrop) return;
+
+        function buildMenu(currentIdx) {
+          menuDrop.innerHTML = '';
+          PROJECTS.forEach((p, i) => {
+            const item = document.createElement('div');
+            item.className = 'proj-menu-item' + (i === currentIdx ? ' active' : '');
+            item.innerHTML = `
+              <div class="proj-menu-thumb">
+                <img src="${p.thumbnail}" alt="${p.title}" loading="lazy" />
+              </div>
+              <div class="proj-menu-label">
+                <span class="proj-menu-year">${p.year}</span>
+                <span class="proj-menu-name">${p.title}</span>
+              </div>`;
+            item.addEventListener('click', () => {
+              closeMenu();
+              openDetail(i);
+            });
+            menuDrop.appendChild(item);
+          });
+        }
+
+        function openMenu(currentIdx) {
+          buildMenu(currentIdx);
+          menuDrop.classList.add('open');
+          menuBtn.classList.add('active');
+        }
+        function closeMenu() {
+          menuDrop.classList.remove('open');
+          menuBtn.classList.remove('active');
+        }
+
+        menuBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          if (menuDrop.classList.contains('open')) {
+            closeMenu();
+          } else {
+            /* currentIdx stored on the detail element */
+            openMenu(detail.dataset.currentIdx !== undefined ? +detail.dataset.currentIdx : 0);
+          }
+        });
+
+        document.addEventListener('click', e => {
+          if (!e.target.closest('.proj-menu-wrap')) closeMenu();
+        });
+
+        /* Expose so openDetail can update currentIdx */
+        window._setProjMenuIdx = function (idx) {
+          detail.dataset.currentIdx = idx;
+        };
+      })();
+
+      /* lightbox handlers bound in DOMContentLoaded above */
+    })();
+  </script>
+
+  <!-- ── Blogs window logic ── -->
+  <script>
+    (function () {
+      const listView    = document.getElementById('blog-list-view');
+      const updatesView = document.getElementById('blog-updates-view');
+      const postView    = document.getElementById('blog-post-view');
+      const statusEl    = document.getElementById('blog-status');
+
+      let _backToUpdates  = false;
+      let _currentBlogSlug = '';
+
+      function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
+      function showOnly(view) {
+        listView.style.display    = view === 'list'    ? 'block' : 'none';
+        updatesView.style.display = view === 'updates' ? 'block' : 'none';
+        postView.classList.toggle('open', view === 'post');
+      }
+
+      // Render blog list
+      const blogList = document.createElement('div');
+      blogList.className = 'blog-list';
+      statusEl.textContent = BLOGS.length + (BLOGS.length === 1 ? ' post' : ' posts');
+
+      BLOGS.forEach((b, i) => {
+        const entry = document.createElement('div');
+        entry.className = 'blog-entry';
+        const tags = (b.tags || []).map(t => `<span class="blog-tag">${t}</span>`).join('');
+        const badge = b.type === 'updates'
+          ? `<span class="blog-updates-badge">${b.updates.length} UPDATES</span>` : '';
+        entry.innerHTML = `
+          <div class="blog-entry-title">${b.title}${badge}</div>
+          <div class="blog-entry-meta">${b.date}${b.tags?.length ? '  ·  ' + b.tags.join(', ') : ''}</div>
+          <div class="blog-entry-excerpt">${b.excerpt || ''}</div>
+          <div class="blog-tags">${tags}</div>`;
+        entry.addEventListener('click', () => openBlog(i));
+        blogList.appendChild(entry);
+      });
+
+      if (!BLOGS.length) {
+        blogList.innerHTML = '<div style="padding:24px;font-family:var(--font-px);color:var(--c-dim);letter-spacing:2px;font-size:16px;">// NO POSTS YET<br><br>Add posts in js/blogs.js</div>';
+      }
+      listView.appendChild(blogList);
+
+      // Open a blog — routes to updates index or direct post
+      function openBlog(idx) {
+        const b = BLOGS[idx];
+        if (b.type === 'updates') {
+          openUpdatesIndex(b);
+        } else {
+          openPost(b.title, b.date, b.tags, b.content, false);
+        }
+      }
+
+      // Show the updates index for a multi-update blog
+      function openUpdatesIndex(b) {
+        _currentBlogSlug = b.id || slugify(b.title);
+        document.getElementById('blog-updates-title').textContent = b.title;
+        const ul = document.getElementById('blog-updates-list');
+        ul.innerHTML = '';
+        (b.updates || []).forEach((u, i) => {
+          const item = document.createElement('div');
+          item.className = 'blog-update-item';
+          item.innerHTML = `
+            <div class="blog-update-label">${u.label || 'Update ' + (i + 1)}</div>
+            ${u.date ? `<div class="blog-update-date">${u.date}</div>` : ''}
+            ${u.excerpt ? `<div class="blog-update-excerpt">${u.excerpt}</div>` : ''}`;
+          item.addEventListener('click', () => openPost(u.label || 'Update ' + (i + 1), u.date, [], u.content, true));
+          ul.appendChild(item);
+        });
+        showOnly('updates');
+        if (!window._poppingState) {
+          try { history.pushState(null, '', '#blogs/' + _currentBlogSlug); } catch(e) { window.location.hash = 'blogs/' + _currentBlogSlug; }
+        }
+      }
+
+      // Show a single post / update
+      function openPost(title, date, tags, content, backToUpdates) {
+        _backToUpdates = backToUpdates;
+        document.getElementById('blog-post-title').textContent = title;
+        document.getElementById('blog-post-date').textContent  = date || '';
+        document.getElementById('blog-post-tags').innerHTML    =
+          (tags || []).map(t => `<span class="blog-tag">${t}</span>`).join('');
+        document.getElementById('blog-post-body').innerHTML    = content || '';
+        document.getElementById('blog-back').textContent       =
+          backToUpdates ? '← BACK TO UPDATES' : '← BACK TO BLOGS';
+        showOnly('post');
+        if (!window._poppingState) {
+          const postSlug = backToUpdates
+            ? 'blogs/' + _currentBlogSlug + '/' + slugify(title)
+            : 'blogs/' + slugify(title);
+          try { history.pushState(null, '', '#' + postSlug); } catch(e) { window.location.hash = postSlug; }
+        }
+      }
+
+      document.getElementById('blog-back').addEventListener('click', () => {
+        if (_backToUpdates && _currentBlogSlug) {
+          const b = BLOGS.find(b => (b.id || slugify(b.title)) === _currentBlogSlug);
+          if (b) {
+            window._poppingState = true;
+            openUpdatesIndex(b);
+            window._poppingState = false;
+            try { history.replaceState(null, '', '#blogs/' + _currentBlogSlug); } catch(e) {}
+            return;
+          }
+        }
+        showOnly('list');
+        try { history.replaceState(null, '', '#blogs'); } catch(e) {}
+      });
+
+      document.getElementById('blog-updates-back').addEventListener('click', () => {
+        showOnly('list');
+        try { history.replaceState(null, '', '#blogs'); } catch(e) {}
+      });
+
+      document.getElementById('blog-scroll-top').addEventListener('click', () => {
+        document.getElementById('blog-body').scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      /* ── Blog hamburger menu ── */
+      (function () {
+        const menuBtn  = document.getElementById('blog-menu-btn');
+        const menuDrop = document.getElementById('blog-menu-dropdown');
+
+        function buildMenu() {
+          menuDrop.innerHTML = '';
+          BLOGS.forEach(b => {
+            const slug = b.id || slugify(b.title);
+            const item = document.createElement('div');
+            item.className = 'proj-menu-item' + (slug === _currentBlogSlug ? ' active' : '');
+            item.innerHTML = `
+              <div class="proj-menu-label">
+                <span class="proj-menu-year">${b.date || ''}</span>
+                <span class="proj-menu-name">${b.title}</span>
+              </div>`;
+            item.addEventListener('click', () => {
+              closeMenu();
+              window._openBlogBySlug(slug);
+            });
+            menuDrop.appendChild(item);
+          });
+        }
+
+        function openMenu() {
+          buildMenu();
+          menuDrop.classList.add('open');
+          menuBtn.classList.add('active');
+        }
+        function closeMenu() {
+          menuDrop.classList.remove('open');
+          menuBtn.classList.remove('active');
+        }
+
+        menuBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          if (menuDrop.classList.contains('open')) closeMenu();
+          else openMenu();
+        });
+
+        document.addEventListener('click', e => {
+          if (!e.target.closest('#blog-menu-wrap')) closeMenu();
+        });
+      })();
+
+      showOnly('list');
+      /* Expose for router */
+      window._openBlogBySlug = function(blogSlug, updateSlug) {
+        const b = BLOGS.find(b => (b.id || slugify(b.title)) === blogSlug);
+        if (!b) return;
+        if (b.type === 'updates') {
+          openUpdatesIndex(b);
+          if (updateSlug) {
+            const u = (b.updates || []).find(u => slugify(u.label) === updateSlug);
+            if (u) openPost(u.label, u.date, [], u.content, true);
+          }
+        } else {
+          openPost(b.title, b.date, b.tags, b.content, false);
+        }
+      };
+      window._resetBlogsToList = function () { showOnly('list'); };
+    })();
+  </script>
+
+  <!-- ── Context menu wallpaper shortcuts ── -->
+  <script>
+    (function () {
+      const wallpaperMenu = document.getElementById('ctx-wallpaper');
+      const presets = [
+        { name: 'Teal',     color: '#008080' },
+        { name: 'Midnight', color: '#0d0d2b' },
+        { name: 'Dark',     color: '#111111' },
+        { name: 'Purple',   color: '#1a0030' },
+        { name: 'Forest',   color: '#0d2010' },
+        { name: 'Navy',     color: '#001040' },
+      ];
+      presets.forEach(p => {
+        const item = document.createElement('div');
+        item.className = 'ctx-item';
+        item.innerHTML = `<span class="bg-swatch" style="background:${p.color}"></span>${p.name}`;
+        item.addEventListener('click', () => {
+          document.getElementById('desktop').style.background = p.color;
+          document.documentElement.style.setProperty('--desktop-bg', p.color);
+          localStorage.setItem('bg', p.color);
+          document.getElementById('ctx-menu').classList.remove('open');
+        });
+        wallpaperMenu.appendChild(item);
+      });
+    })();
+  </script>
+
+  <!-- ── Image lightbox overlay ── -->
+  <div id="proj-lightbox" class="proj-lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">&#8249;</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">&#8250;</button>
+  </div>
+
+  <script src="js/sounds.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/desktop.js"></script>
+
+  <!-- ── Hash router + popstate handler ── -->
+  <script>
+    window._poppingState = false;
+
+    function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
+    /* Navigate to a hash without pushing new history entries */
+    window._navigateToHash = function (hash) {
+      const parts   = hash.split('/');
+      const section = parts[0];
+
+      window._poppingState = true;
+
+      if (!hash) {
+        /* Empty hash — close all windows, reveal desktop */
+        document.querySelectorAll('.os-window.win-open').forEach(w => {
+          const wid = w.id.replace('win-', '');
+          if (typeof window._closeWindow === 'function') window._closeWindow(wid);
+        });
+
+      } else if (section === 'project' && parts[1]) {
+        /* Deep link to a specific project detail */
+        if (typeof window._openWindow === 'function') window._openWindow('projects');
+        const idx = (typeof PROJECTS !== 'undefined')
+          ? PROJECTS.findIndex(p => slugify(p.title) === parts[1]) : -1;
+        setTimeout(() => {
+          if (idx !== -1 && typeof window._openProjectDetail === 'function') window._openProjectDetail(idx);
+          window._poppingState = false;
+        }, 80);
+        return; /* _poppingState reset inside setTimeout */
+
+      } else if (section === 'projects') {
+        /* Projects grid */
+        if (typeof window._openWindow === 'function') window._openWindow('projects');
+        if (typeof window._resetProjects === 'function') window._resetProjects();
+
+      } else if (section === 'blogs' && parts[1]) {
+        /* Blog post or update */
+        if (typeof window._openWindow === 'function') window._openWindow('blogs');
+        setTimeout(() => {
+          if (typeof window._openBlogBySlug === 'function') window._openBlogBySlug(parts[1], parts[2] || null);
+          window._poppingState = false;
+        }, 80);
+        return;
+
+      } else if (section === 'blogs') {
+        /* Blog list */
+        if (typeof window._openWindow === 'function') window._openWindow('blogs');
+        if (typeof window._resetBlogsToList === 'function') window._resetBlogsToList();
+
+      } else {
+        /* Generic window id — resume, about, reel, art, etc. */
+        if (typeof window._openWindow === 'function') window._openWindow(section);
+      }
+
+      window._poppingState = false;
+    };
+
+    /* On load: navigate to the hash if present */
+    window.addEventListener('load', function () {
+      const hash = window.location.hash.slice(1);
+      if (hash) window._navigateToHash(hash);
+    });
+
+    /* Back/forward button: navigate within the SPA */
+    window.addEventListener('popstate', function () {
+      window._navigateToHash(window.location.hash.slice(1));
+    });
+  </script>
+
+
+  <!-- ═══════════════════════════════════════════════
+       MOBILE LAYOUT
+       ═══════════════════════════════════════════════ -->
+  <div id="mobile-layout">
+
+    <header class="m-header">
+      <div class="m-header-top">
+        <img src="assets/jellyfish_logo-01.png" alt="Logo" class="m-logo" />
+        <div class="m-header-title-group">
+          <span class="m-site-title">KUNSH ARYAMAN</span>
+          <span class="m-site-role">FX ARTIST</span>
+        </div>
+      </div>
+      <nav class="m-nav" id="m-nav">
+        <button class="m-nav-btn active" data-sec="reel">DEMO REEL</button>
+        <button class="m-nav-btn" data-sec="projects">PROJECTS</button>
+        <button class="m-nav-btn" data-sec="resume">RESUME</button>
+        <button class="m-nav-btn" data-sec="blogs">BLOGS</button>
+        <button class="m-nav-btn" data-sec="about">ABOUT ME</button>
+        <button class="m-nav-btn" id="m-contact-btn">CONTACT</button>
+      </nav>
+      <!-- Contact dropdown — inside header so position:absolute works -->
+      <div class="m-contact-dropdown" id="m-contact-drop">
+        <a href="mailto:kunsharyaman09@gmail.com" class="m-contact-link">EMAIL ✉</a>
+        <a href="https://www.linkedin.com/in/kunsh-aryaman-88839a26a/" target="_blank" rel="noopener" class="m-contact-link">LINKEDIN ↗</a>
+        <a href="https://www.instagram.com/kunshsart/" target="_blank" rel="noopener" class="m-contact-link">INSTAGRAM ↗</a>
+      </div>
+    </header>
+
+    <div class="m-main">
+
+      <!-- Demo Reel — default landing section -->
+      <section class="m-section" id="m-sec-reel">
+        <div class="m-reel-content">
+          <video src="assets/reel/demoreel.mp4" controls playsinline style="width:100%;display:block;background:#000;"></video>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="m-section" id="m-sec-projects" style="display:none">
+        <div class="m-proj-toolbar" id="m-proj-toolbar">
+          <button class="m-proj-filter-btn active" data-sort="newest">NEWEST FIRST</button>
+          <button class="m-proj-filter-btn" data-sort="oldest">OLDEST FIRST</button>
+        </div>
+        <div class="m-proj-grid" id="m-proj-grid"></div>
+      </section>
+
+      <!-- Resume -->
+      <section class="m-section m-section-resume" id="m-sec-resume" style="display:none">
+        <div class="m-resume">
+          <div class="m-resume-toolbar">
+            <span class="m-resume-label">resume.pdf</span>
+            <a href="assets/resume.pdf" download="Kunsh_Aryaman_Resume.pdf" class="btn-px">DOWNLOAD ↓</a>
+            <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn-px">OPEN ↗</a>
+          </div>
+          <iframe src="assets/resume.pdf" class="m-resume-iframe" title="Resume"></iframe>
+        </div>
+      </section>
+
+      <!-- Blogs -->
+      <section class="m-section" id="m-sec-blogs" style="display:none">
+        <div class="m-blog-list" id="m-blog-list"></div>
+      </section>
+
+      <!-- About Me -->
+      <section class="m-section" id="m-sec-about" style="display:none">
+        <div class="m-about">
+          <img class="m-about-photo" id="m-about-photo" />
+          <div class="m-about-ident" id="m-about-ident"></div>
+          <div class="m-about-bio"   id="m-about-bio"></div>
+          <div class="m-about-links" id="m-about-links"></div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Project detail overlay -->
+    <div class="m-detail" id="m-detail">
+      <div class="m-detail-topbar">
+        <button class="m-detail-back" id="m-detail-back">← BACK</button>
+      </div>
+      <div class="m-detail-scroll">
+        <div class="m-detail-content" id="m-detail-content"></div>
+      </div>
+      <div class="m-detail-botbar">
+        <button class="m-detail-prevnext" id="m-detail-prev"></button>
+        <button class="m-detail-prevnext" id="m-detail-next"></button>
+      </div>
+    </div>
+
+    <!-- Blog post overlay -->
+    <div class="m-blog-detail" id="m-blog-detail">
+      <div class="m-detail-topbar">
+        <button class="m-detail-back" id="m-blog-back">← BACK</button>
+      </div>
+      <div class="m-blog-detail-scroll">
+        <div class="m-blog-detail-content" id="m-blog-detail-content"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  /* ─── MOBILE JS ─── */
+  (function () {
+
+    /* ── Hash helpers ── */
+    function hashPush(h) {
+      try { history.pushState(null, '', '#' + h); } catch(e) { location.hash = h; }
+    }
+    var _suppressHash = false;
+
+    /* ── Section switching ── */
+    var secMap = { reel: 'm-sec-reel', projects: 'm-sec-projects', resume: 'm-sec-resume', blogs: 'm-sec-blogs', about: 'm-sec-about' };
+    var curSec = 'reel';
+
+    function switchSection(sec, pushHash) {
+      Object.keys(secMap).forEach(function(s) {
+        document.getElementById(secMap[s]).style.display = (s === sec) ? '' : 'none';
+      });
+      document.querySelectorAll('.m-nav-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.sec === sec);
+      });
+      curSec = sec;
+      if (pushHash && !_suppressHash) hashPush(sec);
+    }
+
+    document.getElementById('m-nav').addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-sec]');
+      if (!btn || btn.dataset.sec === curSec) return;
+      switchSection(btn.dataset.sec, true);
+    });
+
+    /* ── Project grid ── */
+    var grid = document.getElementById('m-proj-grid');
+
+    function renderMobileGrid(sort) {
+      grid.innerHTML = '';
+      var sorted = PROJECTS.slice().sort(function(a, b) {
+        return sort === 'oldest'
+          ? parseInt(a.year) - parseInt(b.year)
+          : parseInt(b.year) - parseInt(a.year);
+      });
+      sorted.forEach(function(p) {
+        var i = PROJECTS.indexOf(p);
+        var card = document.createElement('div');
+        card.className = 'm-proj-card';
+        card.innerHTML = '<img src="' + p.thumbnail + '" alt="' + p.title + '" loading="lazy" />'
+          + '<div class="m-proj-card-info">'
+          + '<div class="m-proj-card-title">' + p.title + '</div>'
+          + '<div class="m-proj-card-cat">' + p.category + '</div>'
+          + '</div>';
+        card.addEventListener('click', function() { openMobileDetail(i); });
+        grid.appendChild(card);
+      });
+    }
+
+    renderMobileGrid('newest');
+
+    document.getElementById('m-proj-toolbar').addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-sort]');
+      if (!btn) return;
+      document.querySelectorAll('.m-proj-filter-btn').forEach(function(b) {
+        b.classList.toggle('active', b === btn);
+      });
+      renderMobileGrid(btn.dataset.sort);
+    });
+
+    /* ── Project detail ── */
+    var mDetail  = document.getElementById('m-detail');
+    var mContent = document.getElementById('m-detail-content');
+    var mScroll  = mDetail.querySelector('.m-detail-scroll');
+
+    function openMobileDetail(idx) {
+      var p = PROJECTS[idx];
+      mContent.innerHTML = '';
+      var imgCount = 0;
+
+      /* Title */
+      var h = document.createElement('h2');
+      h.className = 'm-d-title';
+      h.textContent = p.title;
+      h.style.color = p.hoverColor || '';
+      mContent.appendChild(h);
+
+      /* Meta */
+      var accent = p.hoverColor || 'var(--c-accent)';
+      var metaRows = [];
+      if (p.year)                  metaRows.push(['Year', p.year]);
+      if (p.duration)              metaRows.push(['Duration', p.duration]);
+      if (p.tags && p.tags.length) metaRows.push(['Software', p.tags.join(', ')]);
+      if (metaRows.length) {
+        var meta = document.createElement('div');
+        meta.className = 'm-d-meta';
+        metaRows.forEach(function(r) {
+          meta.innerHTML += '<div class="m-d-meta-row"><span class="m-d-meta-key" style="color:' + accent + '">'
+            + r[0] + '</span><span>: ' + r[1] + '</span></div>';
+        });
+        mContent.appendChild(meta);
+      }
+
+      /* Blurb */
+      if (p.blurb) {
+        var bl = document.createElement('div');
+        bl.className = 'm-d-blurb';
+        bl.style.borderLeftColor = accent;
+        bl.textContent = p.blurb;
+        mContent.appendChild(bl);
+      }
+
+      /* Video */
+      var vidSrc = p.videoFile || (p.videos && p.videos[0] && p.videos[0].src) || '';
+      if (p.video || vidSrc) {
+        var vw = document.createElement('div');
+        vw.className = 'm-d-video';
+        vw.innerHTML = p.video
+          ? '<iframe src="' + p.video + '" allowfullscreen></iframe>'
+          : '<video src="' + vidSrc + '" controls preload="metadata"></video>';
+        mContent.appendChild(vw);
+      }
+
+      /* Text + images */
+      if (p.content) {
+        p.content.forEach(function(item) {
+          if (item.type === 'text' || item.type === 'intro') {
+            var el = document.createElement('p');
+            el.className = 'm-d-text';
+            el.innerHTML = item.value;
+            el.querySelectorAll('[data-blog-slug]').forEach(function(a) {
+              a.addEventListener('click', function(ev) {
+                ev.preventDefault();
+                var bi = BLOGS.findIndex(function(b) { return b.id === a.dataset.blogSlug; });
+                if (bi >= 0) openMobileBlog(bi);
+              });
+            });
+            mContent.appendChild(el);
+          } else if (item.type === 'image') {
+            imgCount++;
+            var wrap = document.createElement('div');
+            wrap.className = 'm-d-img-wrap';
+            wrap.innerHTML = '<img class="m-d-img" src="' + item.value + '" alt="' + p.title + '" loading="lazy" />'
+              + '<div class="m-d-img-label">image render ' + imgCount + '</div>';
+            mContent.appendChild(wrap);
+          }
+        });
+      }
+
+      /* Prev / Next */
+      var pi = (idx - 1 + PROJECTS.length) % PROJECTS.length;
+      var ni = (idx + 1) % PROJECTS.length;
+      var pb = document.getElementById('m-detail-prev');
+      var nb = document.getElementById('m-detail-next');
+      pb.innerHTML = '&larr; PREV<span class="proj-nav-sub">' + PROJECTS[pi].title + '</span>';
+      pb.onclick = function() { openMobileDetail(pi); };
+      nb.innerHTML = 'NEXT &rarr;<span class="proj-nav-sub">' + PROJECTS[ni].title + '</span>';
+      nb.onclick = function() { openMobileDetail(ni); };
+
+      mDetail.classList.add('open');
+      mScroll.scrollTop = 0;
+      if (!_suppressHash) hashPush('project/' + idx);
+    }
+
+    document.getElementById('m-detail-back').addEventListener('click', function() {
+      history.back();
+    });
+
+    /* ── Blog list ── */
+    var blogList = document.getElementById('m-blog-list');
+    BLOGS.forEach(function(b, i) {
+      var card = document.createElement('div');
+      card.className = 'm-blog-card';
+      card.innerHTML = '<div class="m-blog-card-title">' + b.title + '</div>'
+        + '<div class="m-blog-card-date">' + b.date + '</div>'
+        + '<div class="m-blog-card-excerpt">' + b.excerpt + '</div>';
+      card.addEventListener('click', function() { openMobileBlog(i); });
+      blogList.appendChild(card);
+    });
+
+    /* ── Blog detail ── */
+    var mBlogDetail  = document.getElementById('m-blog-detail');
+    var mBlogContent = document.getElementById('m-blog-detail-content');
+
+    function openMobileBlog(idx) {
+      var b = BLOGS[idx];
+      mBlogContent.innerHTML = '';
+
+      var t = document.createElement('div');
+      t.className = 'm-blog-post-title';
+      t.textContent = b.title;
+      mBlogContent.appendChild(t);
+
+      var d = document.createElement('div');
+      d.className = 'm-blog-post-date';
+      d.textContent = b.date;
+      mBlogContent.appendChild(d);
+
+      if (b.type === 'updates') {
+        b.updates.forEach(function(u) {
+          var wrap = document.createElement('div');
+          wrap.className = 'm-blog-update';
+          wrap.innerHTML = '<div class="m-blog-update-label">' + u.label + '</div>'
+            + '<div class="m-blog-update-date">' + u.date + '</div>'
+            + u.content;
+          mBlogContent.appendChild(wrap);
+        });
+      } else if (b.content) {
+        var wrap = document.createElement('div');
+        wrap.innerHTML = b.content;
+        mBlogContent.appendChild(wrap);
+      }
+
+      mBlogDetail.classList.add('open');
+      mBlogDetail.querySelector('.m-blog-detail-scroll').scrollTop = 0;
+      if (!_suppressHash) hashPush('blogs/' + (b.id || idx));
+    }
+
+    document.getElementById('m-blog-back').addEventListener('click', function() {
+      history.back();
+    });
+
+    /* ── Popstate: handle browser back/forward ── */
+    window.addEventListener('popstate', function() {
+      var hash = location.hash.replace(/^#/, '');
+      _suppressHash = true;
+      if (hash.startsWith('project/')) {
+        var idx = parseInt(hash.slice(8), 10);
+        if (!isNaN(idx) && PROJECTS[idx]) {
+          openMobileDetail(idx);
+        }
+      } else if (hash.startsWith('blogs/')) {
+        var slug = hash.slice(6);
+        var bi = BLOGS.findIndex(function(b) { return b.id === slug || String(BLOGS.indexOf(b)) === slug; });
+        mBlogDetail.classList.remove('open');
+        if (bi >= 0) openMobileBlog(bi);
+      } else {
+        mDetail.classList.remove('open');
+        mBlogDetail.classList.remove('open');
+        if (hash && secMap[hash]) switchSection(hash, false);
+      }
+      _suppressHash = false;
+    });
+
+    /* ── Handle initial hash on load ── */
+    (function() {
+      var hash = location.hash.replace(/^#/, '');
+      if (!hash) return;
+      _suppressHash = true;
+      if (hash.startsWith('project/')) {
+        var idx = parseInt(hash.slice(8), 10);
+        if (!isNaN(idx) && PROJECTS[idx]) openMobileDetail(idx);
+      } else if (hash.startsWith('blogs/')) {
+        var slug = hash.slice(6);
+        var bi = BLOGS.findIndex(function(b) { return b.id === slug; });
+        switchSection('blogs', false);
+        if (bi >= 0) openMobileBlog(bi);
+      } else if (secMap[hash]) {
+        switchSection(hash, false);
+      }
+      _suppressHash = false;
+    })();
+
+    /* ── Contact dropdown ── */
+    var contactBtn  = document.getElementById('m-contact-btn');
+    var contactDrop = document.getElementById('m-contact-drop');
+
+    contactBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = contactDrop.classList.toggle('open');
+      contactBtn.classList.toggle('active', isOpen);
+    });
+    document.addEventListener('click', function(e) {
+      if (e.target !== contactBtn && !contactDrop.contains(e.target)) {
+        contactDrop.classList.remove('open');
+        contactBtn.classList.remove('active');
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

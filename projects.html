@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Kunsh Aryaman</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <div id="cursor">
+    <div class="cursor-h"></div>
+    <div class="cursor-v"></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-logo">KA<span style="color:var(--text-dim)">.EXE</span></div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="projects.html" class="active">PROJECTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener">RESUME</a>
+    </div>
+    <div class="nav-status">
+      <span class="status-dot"></span> AVAILABLE FOR WORK
+    </div>
+  </nav>
+
+  <!-- ── Projects Page ── -->
+  <main class="page projects-page">
+
+    <div class="page-header">
+      <h1 class="page-title"><span>//</span> PROJECTS</h1>
+      <span class="project-count" id="project-count"></span>
+    </div>
+
+    <!-- Category filter buttons — built automatically from project data -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+    </div>
+
+    <!-- Cards injected here by JS -->
+    <div class="projects-grid" id="projects-grid"></div>
+
+    <footer>
+      <div>KUNSH ARYAMAN &copy; <span id="year"></span></div>
+      <div>VFX_ARTIST <span>|</span> MOTION_DESIGNER</div>
+    </footer>
+  </main>
+
+  <!-- ── Project Detail Modal ── -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-window win95-window" id="modal-window">
+
+      <div class="win95-titlebar">
+        <span id="modal-titlebar">project.exe</span>
+        <div class="win95-btns">
+          <span>_</span>
+          <span>□</span>
+          <span id="modal-close" title="Close">✕</span>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-media" id="modal-media"></div>
+
+        <div class="section-label" id="modal-category"></div>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-tags" id="modal-tags"></div>
+
+        <a class="btn-pixel" id="modal-link" href="#" target="_blank" rel="noopener"
+           style="display:none">VIEW EXTERNAL ↗</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/projects.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── Build filter buttons from unique categories ── */
+    const categories = [...new Set(PROJECTS.map(p => p.category.split('|')[0].trim()))];
+    const filterBar = document.getElementById('filter-bar');
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.filter = cat.toLowerCase();
+      btn.textContent = cat.toUpperCase();
+      filterBar.appendChild(btn);
+    });
+
+    /* ── Render project cards ── */
+    function renderCards(filter) {
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
+      const filtered = filter === 'all'
+        ? PROJECTS
+        : PROJECTS.filter(p => p.category.toLowerCase().includes(filter));
+
+      document.getElementById('project-count').textContent =
+        `[ ${filtered.length} ${filtered.length === 1 ? 'WORK' : 'WORKS'} ]`;
+
+      filtered.forEach((proj, idx) => {
+        const realIdx = PROJECTS.indexOf(proj);
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.dataset.index = realIdx;
+
+        const thumb = proj.thumbnail
+          ? `<img src="${proj.thumbnail}" alt="${proj.title}" loading="lazy" />`
+          : `<div class="thumb-placeholder">// NO PREVIEW<br>${proj.title}</div>`;
+
+        card.innerHTML = `
+          <div class="win95-window">
+            <div class="win95-titlebar">
+              <span>${proj.title.toLowerCase().replace(/ /g,'_')}.exe</span>
+              <div class="win95-btns"><span>_</span><span>□</span><span>✕</span></div>
+            </div>
+            <div class="project-thumbnail">${thumb}</div>
+            <div class="project-info">
+              <h3>${proj.title}</h3>
+              <div class="project-meta">
+                <span class="project-category">${proj.category}</span>
+                <span>${proj.year}</span>
+              </div>
+            </div>
+          </div>`;
+
+        card.addEventListener('click', () => openModal(realIdx));
+        grid.appendChild(card);
+      });
+    }
+
+    renderCards('all');
+
+    /* ── Filter button logic ── */
+    filterBar.addEventListener('click', e => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCards(btn.dataset.filter);
+    });
+
+    /* ── Modal ── */
+    const modal = document.getElementById('modal');
+
+    function openModal(idx) {
+      const proj = PROJECTS[idx];
+      document.getElementById('modal-titlebar').textContent =
+        proj.title.toLowerCase().replace(/ /g,'_') + '.exe';
+      document.getElementById('modal-title').textContent = proj.title;
+      document.getElementById('modal-category').textContent = '// ' + proj.category;
+      document.getElementById('modal-desc').textContent = proj.description || '';
+
+      /* Tags */
+      const tagsEl = document.getElementById('modal-tags');
+      tagsEl.innerHTML = (proj.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+
+      /* Media: video embed > image > placeholder */
+      const mediaEl = document.getElementById('modal-media');
+      if (proj.video) {
+        mediaEl.innerHTML = `<iframe src="${proj.video}" allowfullscreen title="${proj.title}"></iframe>`;
+      } else if (proj.thumbnail) {
+        mediaEl.innerHTML = `<img src="${proj.thumbnail}" alt="${proj.title}" style="object-fit:cover;width:100%;height:100%;" />`;
+      } else {
+        mediaEl.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-family:var(--font-pixel);color:var(--text-dim);letter-spacing:2px;">// NO MEDIA</div>`;
+      }
+
+      /* External link */
+      const linkEl = document.getElementById('modal-link');
+      if (proj.link) {
+        linkEl.href = proj.link;
+        linkEl.style.display = 'inline-block';
+      } else {
+        linkEl.style.display = 'none';
+      }
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      document.getElementById('modal-media').innerHTML = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+
+  <script src="js/cursor.js"></script>
+</body>
+</html>
