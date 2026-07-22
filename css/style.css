@@ -41,7 +41,7 @@
   --sys-title-txt: #ffffff;
 
   /* Desktop (runtime-changeable via JS) */
-  --desktop-bg: #008080;
+  --desktop-bg: #111111;
 
   /* Dark content inside windows */
   --c-bg:      #0d0d0d;
