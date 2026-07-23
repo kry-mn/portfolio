@@ -123,6 +123,50 @@ const BLOGS = [
           </ul>
           <video src="assets/blogs/vfx-428/update_3/buoyancy_changes.mp4" controls preload="metadata"></video>
         `
+      },
+      {
+        label: "Update 4",
+        date: "2026-01-31",
+        excerpt: "Reworked track, camera animation, and first colorless render.",
+        content: `
+          <ul>
+            <li>Based on the previous feedback, I changed the track for the car to follow.</li>
+            <li>Rather than doing a whole S-curve, I focused on just the end portion. Now it's a quick turn at the end.</li>
+            <li>I lost some of my data from the last time I worked on the project file, so I had to re-cache the pyro sim.</li>
+            <li>After some feedback, I reworked the pyro sim components. Initial feedback was that the buoyancy was too high, so knocked it down to 0.05.</li>
+            <li>This was also the time I set the camera for the scene and animated it to follow the car.</li>
+            <li>To animate the speed of the car, I went into the CHOPs network created by the Follow Path constraint and changed the values to animate its movement to the end of the curve.</li>
+            <li>I created separate groups for the wheels, car body, and metallic components to make it easier to texture in the stage level.</li>
+            <li>I need to rework my render. Having issues with the material library, I used the groups I created as a way to texture the car.</li>
+            <li>When I set it to render, the frames took forever to render, it was averaging out at around 20 minutes a frame until frame 26, when it stopped rendering altogether.</li>
+            <li>For now I've done a colorless render. I got a dome light in to act as my HDRI.</li>
+            <li>The pyro material was interesting to work with, since the smoke visibility was really low. I played around with values of the Smoke and Shadow Density as well as the color values.</li>
+          </ul>
+        `
+      },
+      {
+        label: "Update 5",
+        date: "2026-02-07",
+        excerpt: "Full project restart, velocity fix, and moving to Blender for rendering.",
+        content: `
+          <ul>
+            <li>I reworked the entire project from scratch. It was pretty easy to catch up, but I also needed a fresh start and I wasn't able to process where I was going wrong.</li>
+            <li>I switched back to the good old RBD Car Rig set-up. I really liked the animation and I knew there was a way to get it working with what I had planned to create.</li>
+            <li>This time, instead of creating just 2 groups for the rear and front wheels, I created 4 separate groups for all the wheels. I felt this would just give me a greater level of control with the animation.</li>
+            <li>While reworking my nodes, I realised my mistake from last time — I hadn't added a velocity attribute to my movement.</li>
+            <li>That's why I wasn't able to leave a trail of smoke around the turns as well, and why the movement of the particles and smoke felt as rigid as it did.</li>
+            <li>I added a Point Wrangle after my Attribute Transfer where I set my velocity attribute manually — I added a gentle upward velocity and random speed. I also tried to adjust the temperature and density settings from this node, but I'm not sure if that will translate how I would like it to.</li>
+          </ul>
+          <img src="assets/blogs/vfx-428/update_5/vel_vex_snippet.png" alt="VEX velocity snippet" class="blog-img-sm" />
+          <ul>
+            <li>Popnet looks good, birth rate = 5000 and cached really quick.</li>
+            <li>Started caching the pyro out, but it's taking forever.</li>
+            <li>After some painstaking amount of searching online, as well as making sure my download speeds and network issues were eradicated, still having issues with this pyro cache.</li>
+            <li>Dropped the resolution down from 0.01 to 0.05 and it seems to be caching fine. Realised that with every frame, the 0.01 cache had to cache ~7.5 million points, so dropping resolution helped. Managing right now with 0.02, and caches out quicker.</li>
+            <li>For rendering, I moved the project out to Blender. I'm personally more comfortable with the rendering system there, and there were some base textures for the car that I could apply through Blender directly than rebuild them entirely.</li>
+          </ul>
+          <video src="assets/blogs/vfx-428/update_5/afterburn_final.mp4" controls preload="metadata"></video>
+        `
       }
     ]
   }
