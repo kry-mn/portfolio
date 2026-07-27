@@ -1,6 +1,12 @@
 # Claude Code dev files
 .claude/
 
+# Large video files — hosted on Vimeo
+assets/reel/demoreel.mp4
+assets/projects/coldcase/coldcase_video.mp4
+assets/aboutme_showcase_4k.webm
+assets/aboutme_showcase_new.mp4
+
 
 # After Effects project files
 *.aep
