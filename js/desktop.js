@@ -281,18 +281,9 @@
       const id = icon.dataset.win;
       if (!id) return;
 
-      if (now - lastClick < 400) {
-        // Double-click → open (and reset projects to grid if already open)
-        openWindow(id);
-        if (id === 'projects' && typeof window._resetProjects === 'function') {
-          window._resetProjects();
-        }
-        lastClick = 0;
-      } else {
-        // Single click → select
-        document.querySelectorAll('.d-icon').forEach(i => i.classList.remove('selected'));
-        icon.classList.add('selected');
-        lastClick = now;
+      openWindow(id);
+      if (id === 'projects' && typeof window._resetProjects === 'function') {
+        window._resetProjects();
       }
     });
   });
