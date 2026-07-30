@@ -62,6 +62,8 @@ const PROJECTS = [
     year: "2026",
     thumbnail: "assets/projects/bone_dissolve/bonedissolve_thumbnail.png",
     hoverColor: "rgb(100, 180, 255)",
+    thumbScale: 1.7,
+    thumbOrigin: "30% 55%",
     duration: "1 week",
     videoFile: "assets/projects/bone_dissolve/bonedissolve_vid.mp4",
     blurb: "Skeletal arm disintegration built in Houdini, using attribute-transfer-driven dissolve and age-based MaterialX emission rendered in Karma.",
