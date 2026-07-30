@@ -1391,7 +1391,7 @@ sorted.forEach(p => {
       <!-- Demo Reel — default landing section -->
       <section class="m-section" id="m-sec-reel">
         <div class="m-reel-content">
-          <video src="assets/reel/demoreel.mp4" controls playsinline style="width:100%;display:block;background:#000;"></video>
+          <video id="m-reel-video" src="assets/reel/demoreel.mp4" controls playsinline style="width:100%;display:block;background:#000;"></video>
         </div>
       </section>
 
@@ -1474,6 +1474,10 @@ sorted.forEach(p => {
     var curSec = 'reel';
 
     function switchSection(sec, pushHash) {
+      if (curSec === 'reel' && sec !== 'reel') {
+        var rv = document.getElementById('m-reel-video');
+        if (rv) { rv.pause(); rv.currentTime = 0; }
+      }
       Object.keys(secMap).forEach(function(s) {
         document.getElementById(secMap[s]).style.display = (s === sec) ? '' : 'none';
       });
