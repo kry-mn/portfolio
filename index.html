@@ -582,29 +582,31 @@
     var dlinks = document.getElementById('d-about-links');
     if (dlinks) { a.links.forEach(function (lnk) { dlinks.appendChild(makeLink(lnk)); }); }
 
-    /* Mobile */
-    var mph = document.getElementById('m-about-photo');
-    if (mph) { mph.src = a.photo; mph.alt = a.name; }
+    /* Mobile — deferred until full DOM is ready */
+    document.addEventListener('DOMContentLoaded', function () {
+      var mph = document.getElementById('m-about-photo');
+      if (mph) { mph.src = a.photo; mph.alt = a.name; }
 
-    var mident = document.getElementById('m-about-ident');
-    if (mident) {
-      mident.innerHTML =
-        '<p class="m-about-name">'     + a.name.toUpperCase()     + '</p>' +
-        '<p class="m-about-role-tag">' + a.role.toUpperCase()     + '</p>' +
-        '<p class="m-about-loc">'      + a.location               + '</p>';
-    }
+      var mident = document.getElementById('m-about-ident');
+      if (mident) {
+        mident.innerHTML =
+          '<p class="m-about-name">'     + a.name.toUpperCase()     + '</p>' +
+          '<p class="m-about-role-tag">' + a.role.toUpperCase()     + '</p>' +
+          '<p class="m-about-loc">'      + a.location               + '</p>';
+      }
 
-    var mbio = document.getElementById('m-about-bio');
-    if (mbio) {
-      a.bio.forEach(function (t) {
-        var p = document.createElement('p');
-        p.innerHTML = t;
-        mbio.appendChild(p);
-      });
-    }
+      var mbio = document.getElementById('m-about-bio');
+      if (mbio) {
+        a.bio.forEach(function (t) {
+          var p = document.createElement('p');
+          p.innerHTML = t;
+          mbio.appendChild(p);
+        });
+      }
 
-    var mlinks = document.getElementById('m-about-links');
-    if (mlinks) { a.links.forEach(function (lnk) { mlinks.appendChild(makeLink(lnk)); }); }
+      var mlinks = document.getElementById('m-about-links');
+      if (mlinks) { a.links.forEach(function (lnk) { mlinks.appendChild(makeLink(lnk)); }); }
+    });
   })();
   </script>
 
