@@ -189,6 +189,37 @@ const PROJECTS = [
     tags: ["Houdini", "Blender", "After Effects"],
     link: ""
   }
+
+  ,
+
+  {
+    title: "Bone Dissolve",
+    category: "FX | Simulation",
+    year: "2026",
+    thumbnail: "assets/projects/bone_dissolve/bonedissolve_thumbnail.png",
+    hoverColor: "rgb(100, 180, 255)",
+    duration: "1 week",
+    videoFile: "assets/projects/bone_dissolve/bonedissolve_vid.mp4",
+    blurb: "Skeletal arm disintegration built in Houdini, using attribute-transfer-driven dissolve and age-based MaterialX emission rendered in Karma.",
+    content: [
+      {
+        type: "intro",
+        value: "This piece breaks down a skeletal arm using an attribute-transfer-driven dissolve, giving more control over the disintegration pattern than a simple noise-based approach."
+      },
+      {
+        type: "text",
+        value: "The breaking edges are lit with age-based MaterialX emission, rendered in Karma, giving the piece a glowing, ember-like quality as it falls apart."
+      },
+      {
+        type: "text",
+        value: "A key challenge was flickering on the fine geometry near the disintegration front, traced to specular noise interacting with small-scale detail. Rendered entirely in Karma, textured in Substance Painter. Arm and wall assets from BlenderKit."
+      },
+      { type: "image", value: "assets/projects/bone_dissolve/bonedissolve_still1.png" },
+      { type: "image", value: "assets/projects/bone_dissolve/bonedissolve_still2.png" },
+    ],
+    tags: ["Houdini", "Blender", "Substance Painter"],
+    link: ""
+  }
   /* ← Add more projects here */
 
 ];
