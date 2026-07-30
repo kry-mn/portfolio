@@ -104,6 +104,10 @@
   function minimizeWindow(id) {
     const win = getWin(id);
     if (!win) return;
+    if (id === 'reel') {
+      const rv = document.querySelector('#win-reel video');
+      if (rv) { rv.pause(); rv.currentTime = 0; }
+    }
     if (!winState[id]) winState[id] = {};
     winState[id].min = true;
     if (typeof Sounds !== 'undefined') Sounds.minimize();
@@ -589,7 +593,13 @@
   const _origOpen  = openWindow;
   const _origClose = closeWindow;
   openWindow  = function(id) { _origOpen(id);  syncShowcaseVideo(id, true);  syncIntroOverlay(); if (window._bgEnsurePlaying) window._bgEnsurePlaying(); };
-  closeWindow = function(id) { _origClose(id); syncShowcaseVideo(id, false); syncIntroOverlay(); if (window._bgEnsurePlaying) window._bgEnsurePlaying(); };
+  closeWindow = function(id) {
+    if (id === 'reel') {
+      const rv = document.querySelector('#win-reel video');
+      if (rv) { rv.pause(); rv.currentTime = 0; }
+    }
+    _origClose(id); syncShowcaseVideo(id, false); syncIntroOverlay(); if (window._bgEnsurePlaying) window._bgEnsurePlaying();
+  };
 
   /* Expose for hash router */
   window._openWindow  = openWindow;
