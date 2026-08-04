@@ -120,7 +120,7 @@ const PROJECTS = [
     category: "Virtual Production | FX",
     year: "2026",
     thumbnail: "assets/projects/coldcase/coldcase_still2.png",
-    hoverColor: "rgb(100, 200, 150)",
+    hoverColor: "rgb(210, 170, 90)",
     duration: "6 weeks",
     videoFile: "assets/projects/coldcase/coldcase_video.mp4",
     video: "",
