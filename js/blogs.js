@@ -203,6 +203,12 @@ const BLOGS = [
           <ul>
             <li>This was a much simpler project to complete, especially when after I figured out how to run cloth sims in Houdini.</li>
             <li>There were 2 types of seaweed I created to fill the scene - those made from cloth sims, and the background ones I created using L-systems (and to break up the pattern slightly).</li>
+            <li>These are the variations of the cloth seaweed.
+              <video src="assets/blogs/seaweed/update_2/cloth_variations.mp4" controls preload="metadata"></video>
+            </li>
+            <li>I had added a very slight attribute randomise for the pscale, and mostly changed the wind speeds and angle of the bend node.
+              <video src="assets/blogs/seaweed/update_2/pscale_wind.mp4" controls preload="metadata"></video>
+            </li>
             <li>These are more or less the rules applied to all the L-system seaweed, with slight variations and randomised seed values applied later for more variation.
               <img src="assets/blogs/seaweed/update_2/lsystem_rules.png" alt="L-system rules" class="blog-img-sm" />
             </li>
