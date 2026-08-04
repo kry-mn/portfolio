@@ -194,6 +194,33 @@ const BLOGS = [
             <li>This was also kind of exciting for me since I had been meaning to test out cloth sims in Houdini.</li>
           </ul>
         `
+      },
+      {
+        label: "Update 2",
+        date: "2026-07-02",
+        excerpt: "Cloth sims, L-systems, caustics setup, and Substance Designer texturing.",
+        content: `
+          <ul>
+            <li>This was a much simpler project to complete, especially when after I figured out how to run cloth sims in Houdini.</li>
+            <li>There were 2 types of seaweed I created to fill the scene - those made from cloth sims, and the background ones I created using L-systems (and to break up the pattern slightly).</li>
+            <li>These are more or less the rules applied to all the L-system seaweed, with slight variations and randomised seed values applied later for more variation.
+              <img src="assets/blogs/seaweed/update_2/lsystem_rules.png" alt="L-system rules" class="blog-img-sm" />
+            </li>
+            <li>Stage level set-up of the scene
+              <img src="assets/blogs/seaweed/update_2/stage_setup.png" alt="Stage level setup" class="blog-img-sm" />
+            </li>
+            <li>My biggest issue was regarding the caustics setting.</li>
+            <li>I created a distant light that was the primary light source and angled it downwards.</li>
+            <li>To mimic the caustics, I added a grid above the scene and applied an ocean spectrum node to it. Within the shader properties, I turned the transparency up and increased the chop value so it mimicked a flowy ocean caustic.</li>
+            <li>After that I added a karma fogbox and composited a few layers of floating dust to mimic the ocean.</li>
+            <li>Render times weren't as heavy as I packed all the geometry as I went.</li>
+            <li>I decided to texture the leaves through Substance Designer, mostly since I wanted to learn the basics of the software.</li>
+            <li>The shader set-up for the kelp leaves
+              <img src="assets/blogs/seaweed/update_2/shader_setup.png" alt="Shader setup for kelp leaves" class="blog-img-sm" />
+            </li>
+            <li>These are how the final texture looked, but I had to turn them down significantly in the final render.</li>
+          </ul>
+        `
       }
     ]
   }
