@@ -57,6 +57,30 @@ const PROJECTS = [
   ,
 
   {
+    title: "Underwater Foliage",
+    category: "Simulation | Texturing",
+    year: "2026",
+    thumbnail: "assets/projects/underwater_foliage/kelp_thumbnail.png",
+    hoverColor: "rgb(0, 168, 107)",
+    duration: "3 weeks",
+    videoFile: "assets/projects/underwater_foliage/kelp_final.mp4",
+    video: "",
+    blurb: "Underwater kelp forest brought to life through vellum cloth simulation, capturing the natural sway and drift of fronds suspended in current.",
+    content: [
+      {
+        type: "intro", value: "This project explores natural underwater motion through a cloth simulation of a kelp forest, focusing on how fronds move and interact when suspended in current."
+      },
+      { type: "text", value: "The goal was to capture organic, layered movement — long ribbon-like leaves drifting and overlapping in a believable, non-repetitive way, rather than a uniform sway. Rendered in Karma, textured through Substance Designer. I wrote a short blog about it here." },
+      { type: "image", value: "assets/projects/underwater_foliage/kelp_still1.png" },
+      { type: "image", value: "assets/projects/underwater_foliage/kelp_still2.png" }
+    ],
+    tags: ["Houdini", "Blender", "Substance Designer"],
+    link: ""
+  }
+
+  ,
+
+  {
     title: "Bone Dissolve",
     category: "FX | Simulation",
     year: "2026",
@@ -201,30 +225,6 @@ const PROJECTS = [
       { type: "image", value: "assets/projects/hypersleep_chamber/Hypersleep_render1(base).png" }
     ],
     tags: ["Blender", "Substance Painter", "After Effects", "Photoshop"],
-    link: ""
-  }
-  
-  ,
-
-  {
-    title: "Underwater Foliage",
-    category: "Simulation | Texturing",
-    year: "2026",
-    thumbnail: "assets/projects/underwater_foliage/kelp_thumbnail.png",
-    hoverColor: "rgb(175, 185, 195)",
-    duration: "3 weeks",
-    videoFile: "assets/projects/underwater_foliage/kelp_final.mp4",
-    video: "",
-    blurb: "Underwater kelp forest brought to life through vellum cloth simulation, capturing the natural sway and drift of fronds suspended in current.",
-    content: [
-      {
-        type: "intro", value: "This project explores natural underwater motion through a cloth simulation of a kelp forest, focusing on how fronds move and interact when suspended in current."
-      },
-      { type: "text", value: "The goal was to capture organic, layered movement — long ribbon-like leaves drifting and overlapping in a believable, non-repetitive way, rather than a uniform sway. Rendered in Karma, textured through Substance Designer. I wrote a short blog about it here." },
-      { type: "image", value: "assets/projects/underwater_foliage/kelp_still1.png" },
-      { type: "image", value: "assets/projects/underwater_foliage/kelp_still2.png" }
-    ],
-    tags: ["Houdini", "Blender", "Substance Designer"],
     link: ""
   }
 
