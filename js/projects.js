@@ -70,7 +70,9 @@ const PROJECTS = [
       {
         type: "intro", value: "This project explores natural underwater motion through a cloth simulation of a kelp forest, focusing on how fronds move and interact when suspended in current."
       },
-      { type: "text", value: "The goal was to capture organic, layered movement — long ribbon-like leaves drifting and overlapping in a believable, non-repetitive way, rather than a uniform sway. Rendered in Karma, textured through Substance Designer. I wrote a short blog about it here." },
+      { type: "text", value: "The goal was to capture organic, layered movement — long ribbon-like leaves drifting and overlapping in a believable, non-repetitive way, rather than a uniform sway." },
+      { type: "text", value: "Rendered in Karma, textured through Substance Designer." },
+      { type: "text", value: 'I wrote a short blog about it <a class="proj-blog-link" data-blog-slug="blog-02">here</a>.' },
       { type: "image", value: "assets/projects/underwater_foliage/kelp_still1.png" },
       { type: "image", value: "assets/projects/underwater_foliage/kelp_still2.png" }
     ],
