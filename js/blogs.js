@@ -215,6 +215,12 @@ const BLOGS = [
             <li>Stage level set-up of the scene
               <img src="assets/blogs/seaweed/update_2/stage_setup.png" alt="Stage level setup" class="blog-img-sm" />
             </li>
+            <li>For the fish, I modelled a very basic fish in Blender and brought it into Houdini.</li>
+            <li>From there, I set up a simple popnet with a POPCurveFollow and a slight point jitter applied.</li>
+            <li>To animate the fish movement, I created a bend node and input an animated function for the wiggling movement of the fish.</li>
+            <li>This is the movement pattern
+              <video src="assets/blogs/seaweed/update_2/fish_movement.mp4" controls preload="metadata"></video>
+            </li>
             <li>My biggest issue was regarding the caustics setting.</li>
             <li>I created a distant light that was the primary light source and angled it downwards.</li>
             <li>To mimic the caustics, I added a grid above the scene and applied an ocean spectrum node to it. Within the shader properties, I turned the transparency up and increased the chop value so it mimicked a flowy ocean caustic.</li>
