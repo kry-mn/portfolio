@@ -230,7 +230,13 @@ const BLOGS = [
             <li>The shader set-up for the kelp leaves
               <img src="assets/blogs/seaweed/update_2/shader_setup.png" alt="Shader setup for kelp leaves" class="blog-img-sm" />
             </li>
-            <li>These are how the final texture looked, but I had to turn them down significantly in the final render.</li>
+            <li>These are how the final texture looked, but I had to turn them down significantly in the final render.
+              <div class="blog-media-row">
+                <img src="assets/blogs/seaweed/update_2/seaweed_base.png" alt="Base map" />
+                <img src="assets/blogs/seaweed/update_2/seaweed_normal.png" alt="Normal map" />
+                <img src="assets/blogs/seaweed/update_2/seaweed_roughness.png" alt="Roughness map" />
+              </div>
+            </li>
           </ul>
         `
       }
