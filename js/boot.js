@@ -20,32 +20,32 @@
   let done = false;
 
   const BIOS_LINES = [
-    { text: 'ARYAMAN SYSTEMS BIOS v2.98  (C)1998 Kunsh Corp.', gap: 0   },
-    { text: '',                                                  gap: 80  },
-    { text: 'CPU: Intel Pentium II 450MHz ............ OK',     gap: 150 },
-    { text: 'Memory Test: 131072K .................... OK',     gap: 130 },
-    { text: '',                                                  gap: 90  },
-    { text: 'Detecting Primary IDE .. PORTFOLIO HDD [20.4 GB]', gap: 170 },
-    { text: 'Detecting Secondary IDE .. CD-ROM  [DEMO REEL]',   gap: 150 },
-    { text: '',                                                  gap: 90  },
-    { text: 'PnP devices detected: 7',                          gap: 110 },
-    { text: 'Initialising plug-and-play devices ... OK',        gap: 130 },
-    { text: '',                                                  gap: 90  },
-    { text: 'Loading Windows 98...',                            gap: 180 },
+    { text: 'ARYAMAN SYSTEMS BIOS v2.98  (C)1998 Kunsh Corp.', gap: 0  },
+    { text: '',                                                  gap: 20 },
+    { text: 'CPU: Intel Pentium II 450MHz ............ OK',     gap: 40 },
+    { text: 'Memory Test: 131072K .................... OK',     gap: 35 },
+    { text: '',                                                  gap: 25 },
+    { text: 'Detecting Primary IDE .. PORTFOLIO HDD [20.4 GB]', gap: 45 },
+    { text: 'Detecting Secondary IDE .. CD-ROM  [DEMO REEL]',   gap: 40 },
+    { text: '',                                                  gap: 25 },
+    { text: 'PnP devices detected: 7',                          gap: 30 },
+    { text: 'Initialising plug-and-play devices ... OK',        gap: 35 },
+    { text: '',                                                  gap: 25 },
+    { text: 'Loading Windows 98...',                            gap: 50 },
   ];
 
   function finish() {
     if (done) return;
     done = true;
     sessionStorage.setItem('ka_booted', '1');
-    screen.style.transition = 'opacity 0.5s ease';
+    screen.style.transition = 'opacity 0.4s ease';
     screen.style.opacity = '0';
     setTimeout(() => {
       screen.remove();
       if (typeof Sounds !== 'undefined') Sounds.startup();
       const overlay = document.getElementById('intro-overlay');
       if (overlay) overlay.style.display = 'flex';
-    }, 500);
+    }, 400);
   }
 
   document.addEventListener('keydown', finish, { once: true });
@@ -72,7 +72,7 @@
     p.style.marginTop = '12px';
     biosEl.appendChild(p);
     biosEl.scrollTop = biosEl.scrollHeight;
-    setTimeout(finish, 700);
-  }, elapsed + 300);
+    setTimeout(finish, 150);
+  }, elapsed + 30);
 
 })();
