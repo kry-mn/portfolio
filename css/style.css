@@ -850,9 +850,7 @@ a { color: inherit; text-decoration: none; }
   transition: opacity 0.3s;
   z-index: 1;
 }
-.proj-card:hover .proj-thumb-video { opacity: 1; }
-.proj-card.has-video:hover .proj-thumb img { filter: none; }
-.proj-card.has-video:hover .proj-thumb-hover { opacity: 0; }
+.proj-card.previewing .proj-thumb-video { opacity: 1; }
 .proj-thumb-hover {
   position: absolute;
   inset: 0;

@@ -717,8 +717,23 @@ sorted.forEach(p => {
 
           const vid = card.querySelector('.proj-thumb-video');
           if (vid) {
-            card.addEventListener('mouseenter', () => vid.play());
-            card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+            let previewTimer = null;
+            card.addEventListener('mouseenter', () => {
+              vid.currentTime = 0;
+              vid.play();
+              card.classList.add('previewing');
+              previewTimer = setTimeout(() => {
+                card.classList.remove('previewing');
+                vid.pause();
+                vid.currentTime = 0;
+              }, 2500);
+            });
+            card.addEventListener('mouseleave', () => {
+              if (previewTimer) { clearTimeout(previewTimer); previewTimer = null; }
+              card.classList.remove('previewing');
+              vid.pause();
+              vid.currentTime = 0;
+            });
           }
 
           card.addEventListener('click', () => openDetail(idx));
