@@ -693,9 +693,15 @@ sorted.forEach(p => {
           const thumb = p.thumbnail
             ? `<img src="${p.thumbnail}" alt="${p.title}" loading="lazy"${thumbStyle} />`
             : `<div class="proj-thumb-ph">// NO PREVIEW<br>${p.title}</div>`;
+          const previewSrc = p.videoFile || (p.videos && p.videos[0] && p.videos[0].src) || '';
+          const videoEl = previewSrc
+            ? `<video class="proj-thumb-video" src="${previewSrc}" muted loop preload="none" playsinline></video>`
+            : '';
+          if (previewSrc) card.classList.add('has-video');
           card.innerHTML = `
             <div class="proj-thumb">
               ${thumb}
+              ${videoEl}
               <div class="proj-thumb-hover">
                 <span class="proj-thumb-title">${p.title}</span>
               </div>
@@ -707,6 +713,12 @@ sorted.forEach(p => {
           if (p.hoverColor) {
             const titleEl = card.querySelector('.proj-thumb-title');
             if (titleEl) titleEl.style.color = p.hoverColor;
+          }
+
+          const vid = card.querySelector('.proj-thumb-video');
+          if (vid) {
+            card.addEventListener('mouseenter', () => vid.play());
+            card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
           }
 
           card.addEventListener('click', () => openDetail(idx));

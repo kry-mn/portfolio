@@ -838,6 +838,21 @@ a { color: inherit; text-decoration: none; }
 /* ── Thumbnail hover overlay ── */
 .proj-thumb img { transition: filter 0.3s; }
 .proj-card:hover .proj-thumb img { filter: blur(6px) brightness(0.5); }
+
+/* ── Video preview on hover ── */
+.proj-thumb-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+.proj-card:hover .proj-thumb-video { opacity: 1; }
+.proj-card.has-video:hover .proj-thumb img { filter: none; }
+.proj-card.has-video:hover .proj-thumb-hover { opacity: 0; }
 .proj-thumb-hover {
   position: absolute;
   inset: 0;
