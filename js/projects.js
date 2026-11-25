@@ -29,6 +29,7 @@ const PROJECTS = [
     category: "FX | Simulation",
     year: "2026",
     thumbnail: "assets/projects/afterburn/afterburn_thumbnail.png",
+    thumbTime: 6.5,
     hoverColor: "rgb(215, 55, 40)",
     duration: "5 weeks",
     videoFile: "assets/projects/afterburn/afterburn_final.mp4",
