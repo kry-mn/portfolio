@@ -228,6 +228,29 @@ a { color: inherit; text-decoration: none; }
   padding: 4px;
   cursor: none;
   border: 1px solid transparent;
+  position: relative;
+}
+
+.d-icon-tip {
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 5px 10px;
+  white-space: nowrap;
+  font-family: var(--font-px);
+  font-size: 13px;
+  color: #ccc;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 200;
+}
+
+.d-icon:hover .d-icon-tip {
+  opacity: 1;
 }
 
 .d-icon:hover {
