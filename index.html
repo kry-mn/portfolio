@@ -175,7 +175,7 @@
 
       <div class="os-titlebar">
         <div class="os-titlebar-left">
-          <span class="os-titlebar-icon emoji">🗂️</span>
+          <img src="assets/icons/projects_unclicked.png" class="os-titlebar-icon" alt="" />
           <h2>Projects</h2>
         </div>
         <div class="os-titlebar-btns">
@@ -352,7 +352,7 @@
 
       <div class="os-titlebar">
         <div class="os-titlebar-left">
-          <span class="os-titlebar-icon emoji">👤</span>
+          <img src="assets/icons/about.png" class="os-titlebar-icon" alt="" />
           <h2>About — Kunsh Aryaman</h2>
         </div>
         <div class="os-titlebar-btns">
@@ -427,7 +427,7 @@
 
       <div class="os-titlebar">
         <div class="os-titlebar-left">
-          <span class="os-titlebar-icon emoji">🎬</span>
+          <img src="assets/icons/demo_reel.png" class="os-titlebar-icon" alt="" />
           <h2>Demo Reel</h2>
         </div>
         <div class="os-titlebar-btns">
@@ -716,23 +716,24 @@ sorted.forEach(p => {
           }
 
           const vid = card.querySelector('.proj-thumb-video');
+          let previewTimer = null;
           if (vid) {
-            let previewTimer = null;
             card.addEventListener('mouseenter', () => {
-              vid.currentTime = 0;
+              vid.currentTime = p.thumbTime || 0;
               vid.play();
               card.classList.add('previewing');
               previewTimer = setTimeout(() => {
                 card.classList.remove('previewing');
                 vid.pause();
                 vid.currentTime = 0;
+                previewTimer = null;
               }, 2500);
             });
             card.addEventListener('mouseleave', () => {
               if (previewTimer) { clearTimeout(previewTimer); previewTimer = null; }
               card.classList.remove('previewing');
               vid.pause();
-              vid.currentTime = 0;
+              vid.currentTime = p.thumbTime || 0;
             });
           }
 
