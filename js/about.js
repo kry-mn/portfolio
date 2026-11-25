@@ -20,7 +20,7 @@ const ABOUT = {
   name:     "Kunsh Aryaman",
   role:     "FX Artist",
   location: "Bangalore, India",
-  photo:    "assets/profile.jpg",
+  photo:    "assets/ES_Headshot_Kunsh_cropped.jpg",
 
   intro: "I'm <strong>Kunsh Aryaman</strong>, an FX Artist.",
 
