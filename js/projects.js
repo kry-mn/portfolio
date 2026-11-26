@@ -156,6 +156,7 @@ const PROJECTS = [
     year: "2025",
     thumbnail: "assets/projects/unfurl/unfurl_still1.webp",
     thumbTime: 7,
+    previewStart: 4.5,
     hoverColor: "rgb(80, 200, 100)",
     duration: "2 weeks",
     videoFile: "assets/projects/unfurl/unfurl_v2.mp4",
