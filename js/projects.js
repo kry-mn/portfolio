@@ -154,6 +154,7 @@ const PROJECTS = [
     category: "3D | Simulation",
     year: "2025",
     thumbnail: "assets/projects/unfurl/unfurl_still1.webp",
+    thumbTime: 7,
     hoverColor: "rgb(80, 200, 100)",
     duration: "2 weeks",
     videoFile: "assets/projects/unfurl/unfurl_v2.mp4",
