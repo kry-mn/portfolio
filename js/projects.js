@@ -62,6 +62,7 @@ const PROJECTS = [
     category: "Simulation | Texturing",
     year: "2026",
     thumbnail: "assets/projects/underwater_foliage/kelp_thumbnail.webp",
+    thumbTime: 5,
     hoverColor: "rgb(0, 168, 107)",
     duration: "3 weeks",
     videoFile: "assets/projects/underwater_foliage/kelp_final.mp4",
