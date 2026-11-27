@@ -1399,12 +1399,11 @@ sorted.forEach(p => {
   <!-- ═══════════════════════════════════════════════
        MOBILE LAYOUT
        ═══════════════════════════════════════════════ -->
-  <div id="mobile-layout">
+  <video class="m-bg-video" autoplay muted playsinline loop preload="auto">
+    <source src="assets/bg_01.mp4" type="video/mp4" />
+  </video>
 
-    <video class="m-bg-video" autoplay muted playsinline loop>
-      <source src="assets/bg_01.mp4" type="video/mp4" />
-    </video>
-    <div class="m-bg-overlay"></div>
+  <div id="mobile-layout">
 
     <header class="m-header">
       <div class="m-header-bar">
@@ -1537,6 +1536,10 @@ sorted.forEach(p => {
       curSec = sec;
       if (pushHash && !_suppressHash) hashPush(sec);
     }
+
+    /* ── Background video ── */
+    var bgVid = document.querySelector('.m-bg-video');
+    if (bgVid) { bgVid.play().catch(function () {}); }
 
     var hamburgerBtn  = document.getElementById('m-hamburger');
     var hamburgerMenu = document.getElementById('m-hamburger-menu');
