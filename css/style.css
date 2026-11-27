@@ -1946,6 +1946,21 @@ a { color: inherit; text-decoration: none; }
     background: var(--c-bg);
     color: var(--c-text);
     overflow: hidden;
+    position: relative;
+  }
+  .m-bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .m-bg-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(13, 13, 13, 0.55);
+    z-index: 1;
   }
 
   /* Header */
@@ -2059,7 +2074,7 @@ a { color: inherit; text-decoration: none; }
   .m-contact-link:hover, .m-contact-link:active { background: var(--c-accent); color: var(--c-bg); }
 
   /* Scrollable main area */
-  .m-main { flex: 1; overflow-y: auto; min-height: 0; }
+  .m-main { flex: 1; overflow-y: auto; min-height: 0; position: relative; z-index: 2; }
   .m-section { padding: 16px; }
 
   /* Project sort toolbar */
