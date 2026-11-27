@@ -1402,22 +1402,28 @@ sorted.forEach(p => {
   <div id="mobile-layout">
 
     <header class="m-header">
-      <div class="m-header-top">
-        <img src="assets/jellyfish_logo-01.png" alt="Logo" class="m-logo" />
-        <div class="m-header-title-group">
-          <span class="m-site-title">KUNSH ARYAMAN</span>
-          <span class="m-site-role">FX ARTIST</span>
+      <div class="m-header-bar">
+        <button class="m-hamburger" id="m-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="m-header-identity">
+          <img src="assets/jellyfish_logo-01.png" alt="Logo" class="m-logo" />
+          <div class="m-header-title-group">
+            <span class="m-site-title">KUNSH ARYAMAN</span>
+            <span class="m-site-role">FX ARTIST</span>
+          </div>
         </div>
+        <button class="m-contact-topbtn" id="m-contact-btn">CONTACT</button>
       </div>
-      <nav class="m-nav" id="m-nav">
-        <button class="m-nav-btn active" data-sec="reel">DEMO REEL</button>
-        <button class="m-nav-btn" data-sec="projects">PROJECTS</button>
-        <button class="m-nav-btn" data-sec="resume">RESUME</button>
-        <button class="m-nav-btn" data-sec="blogs">BLOGS</button>
-        <button class="m-nav-btn" data-sec="about">ABOUT ME</button>
-        <button class="m-nav-btn" id="m-contact-btn">CONTACT</button>
-      </nav>
-      <!-- Contact dropdown — inside header so position:absolute works -->
+      <!-- Hamburger menu dropdown — left-anchored -->
+      <div class="m-hamburger-menu" id="m-hamburger-menu">
+        <button class="m-menu-item active" data-sec="reel">DEMO REEL</button>
+        <button class="m-menu-item" data-sec="projects">PROJECTS</button>
+        <button class="m-menu-item" data-sec="blogs">BLOGS</button>
+        <button class="m-menu-item" data-sec="resume">RESUME</button>
+        <button class="m-menu-item" data-sec="about">ABOUT ME</button>
+      </div>
+      <!-- Contact dropdown — right-anchored -->
       <div class="m-contact-dropdown" id="m-contact-drop">
         <a href="mailto:kunsharyaman09@gmail.com" class="m-contact-link">EMAIL ✉</a>
         <a href="https://www.linkedin.com/in/kunsh-aryaman-88839a26a/" target="_blank" rel="noopener" class="m-contact-link">LINKEDIN ↗</a>
@@ -1520,17 +1526,22 @@ sorted.forEach(p => {
       Object.keys(secMap).forEach(function(s) {
         document.getElementById(secMap[s]).style.display = (s === sec) ? '' : 'none';
       });
-      document.querySelectorAll('.m-nav-btn').forEach(function(b) {
+      document.querySelectorAll('.m-menu-item').forEach(function(b) {
         b.classList.toggle('active', b.dataset.sec === sec);
       });
       curSec = sec;
       if (pushHash && !_suppressHash) hashPush(sec);
     }
 
-    document.getElementById('m-nav').addEventListener('click', function(e) {
+    var hamburgerBtn  = document.getElementById('m-hamburger');
+    var hamburgerMenu = document.getElementById('m-hamburger-menu');
+
+    hamburgerMenu.addEventListener('click', function(e) {
       var btn = e.target.closest('[data-sec]');
-      if (!btn || btn.dataset.sec === curSec) return;
+      if (!btn) return;
       switchSection(btn.dataset.sec, true);
+      hamburgerMenu.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
     });
 
     /* ── Project grid ── */
@@ -1761,6 +1772,14 @@ sorted.forEach(p => {
       _suppressHash = false;
     })();
 
+    /* ── Hamburger ── */
+    hamburgerBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = hamburgerMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      if (isOpen) { contactDrop.classList.remove('open'); contactBtn.classList.remove('active'); }
+    });
+
     /* ── Contact dropdown ── */
     var contactBtn  = document.getElementById('m-contact-btn');
     var contactDrop = document.getElementById('m-contact-drop');
@@ -1769,11 +1788,16 @@ sorted.forEach(p => {
       e.stopPropagation();
       var isOpen = contactDrop.classList.toggle('open');
       contactBtn.classList.toggle('active', isOpen);
+      if (isOpen) { hamburgerMenu.classList.remove('open'); hamburgerBtn.classList.remove('open'); }
     });
     document.addEventListener('click', function(e) {
       if (e.target !== contactBtn && !contactDrop.contains(e.target)) {
         contactDrop.classList.remove('open');
         contactBtn.classList.remove('active');
+      }
+      if (!hamburgerBtn.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+        hamburgerMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
       }
     });
 
